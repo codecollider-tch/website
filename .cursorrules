@@ -1,0 +1,48 @@
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#
+# IMPORTANT! BEFORE ANY TERMINAL COMMAND PERFORM THIS:
+#
+# ```bash
+# nvm use
+# ```
+##
+# USE ONLY PNPM PACKAGE MANAGER!!!!
+#
+# USE ONLY ENGLISH FOR ANY COMMENTS IN CODE!!!!!
+#
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+## Project Setup
+
+This is a Next.js 15 project with TinaCMS integration.
+
+### Node Version
+This project requires Node.js >=22.0.0 (specified in package.json).
+Always run `nvm use` before any pnpm commands!
+
+### Package Manager
+USE ONLY PNPM! Never use npm or yarn!
+
+### Development Commands
+
+1. **Development Server:**
+   ```bash
+   nvm use
+   pnpm run dev
+   ```
+   This runs TinaCMS dev server with Next.js in turbopack mode.
+
+2. **Build:**
+   ```bash
+   nvm use
+   pnpm run build
+   ```
+   This runs `tinacms build` followed by `next build`.
+
+3. **Start Production:**
+   ```bash
+   nvm use
+   pnpm start
+   ```

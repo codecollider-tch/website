@@ -4,31 +4,34 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useState } from 'react';
 
-const blogs = [
-  {
-    id: 1,
-    title: 'Zeal Consulting Expands Services with New Sustainability Consulting Division',
-    date: '20.10.2024',
-    image: '/images/photos/blog-1.jpg',
-    href: '/post/zeal-consulting-expands-services-with-new-sustainability-consulting-division',
-  },
-  {
-    id: 2,
-    title: 'Upcoming Webinar: Leveraging Data Analytics for Business Growth',
-    date: '15.10.2024',
-    image: '/images/photos/blog-2.jpg',
-    href: '/post/upcoming-webinar-leveraging-data-analytics-for-business-growth',
-  },
-  {
-    id: 3,
-    title: 'Zeal Consulting Achieves ISO 9001 Certification for Quality Management',
-    date: '10.10.2024',
-    image: '/images/photos/blog-3.jpg',
-    href: '/post/zeal-consulting-achieves-iso-9001-certification-for-quality-management',
-  },
-];
+interface Post {
+  id?: string;
+  _sys?: {
+    filename?: string;
+  };
+  title?: string | null;
+  description?: string | null;
+  image?: string | null;
+  date?: string | null;
+  author?: string | null;
+}
 
-function BlogCard({ blog, index }: { blog: typeof blogs[0]; index: number }) {
+interface LatestBlogsProps {
+  posts?: Post[];
+}
+
+function BlogCard({ blog, index }: { blog: Post; index: number }) {
+  const formatDate = (dateString?: string | null) => {
+    if (!dateString) return '';
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-GB', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric'
+    }).replace(/\//g, '.');
+  };
+
+  const href = blog._sys?.filename ? `/blog/${blog._sys.filename}` : '#';
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -40,21 +43,21 @@ function BlogCard({ blog, index }: { blog: typeof blogs[0]; index: number }) {
       className="posts_lists-item"
     >
       <Link
-        href={blog.href}
+        href={href}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         className="posts_list-anchor w-inline-block"
       >
         <div className="posts_list-thumb-wr">
           <img
-            src={blog.image}
+            src={blog.image || ''}
             loading="lazy"
             alt=""
             className="image_fit"
           />
         </div>
         <div className="posts_list-content-wr">
-          <div className="paragraph-small text-lighter">{blog.date}</div>
+          <div className="paragraph-small text-lighter">{formatDate(blog.date)}</div>
           <h3 className="heading-style-h4">{blog.title}</h3>
           <div className="w-layout-hflex cta_readmore">
             <div>Read more</div>
@@ -71,7 +74,9 @@ function BlogCard({ blog, index }: { blog: typeof blogs[0]; index: number }) {
   );
 }
 
-export default function LatestBlogs() {
+export default function LatestBlogs({ posts = [] }: LatestBlogsProps) {
+  if (posts.length === 0) return null;
+
   return (
     <section className="latest_news background-color-grey">
       <div className="padding-global padding-section-medium">
@@ -98,8 +103,8 @@ export default function LatestBlogs() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="posts_list"
             >
-              {blogs.map((blog, index) => (
-                <BlogCard key={blog.id} blog={blog} index={index} />
+              {posts.map((blog, index) => (
+                <BlogCard key={blog.id || index} blog={blog} index={index} />
               ))}
             </motion.div>
           </div>

@@ -4,7 +4,25 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 
-export default function Hero() {
+interface HeroProps {
+  data?: {
+    badge?: string | null;
+    title?: string | null;
+    description?: string | null;
+    buttonText?: string | null;
+    buttonLink?: string | null;
+    image?: string | null;
+  };
+}
+
+export default function Hero({ data }: HeroProps) {
+  const badge = data?.badge || 'Empower Your Brand';
+  const title = data?.title || 'Elevate Your Business with Expert Website Consulting';
+  const description = data?.description || "Transform your online presence with expert website consulting. We provide tailored strategies and designs to drive your business's growth. Let's build your digital future together.";
+  const buttonText = data?.buttonText || 'Know More';
+  const buttonLink = data?.buttonLink || '/contact';
+  const image = data?.image || '/images/photos/hero-team.avif';
+
   return (
     <section className="section_hero">
       <div className="u-nav-spacer"></div>
@@ -19,22 +37,22 @@ export default function Hero() {
               className="hero_content"
             >
               <div>
-                <div className="title-small is-neon">Empower Your Brand</div>
+                <div className="title-small is-neon">{badge}</div>
                 <div className="padding-bottom padding-xsmall"></div>
                 <h1 className="text-color-white heading-style-h2">
-                  Elevate Your Business with Expert Website Consulting
+                  {title}
                 </h1>
                 <div className="padding-bottom padding-xsmall"></div>
                 <p className="body_one">
-                  Transform your online presence with expert website consulting. We provide tailored strategies and designs to drive your business&apos;s growth. Let&apos;s build your digital future together.
+                  {description}
                 </p>
               </div>
               <div>
                 <Link
-                  href="/contact"
+                  href={buttonLink}
                   className="button is-medium w-button"
                 >
-                  Know More
+                  {buttonText}
                 </Link>
               </div>
             </motion.div>
@@ -44,7 +62,7 @@ export default function Hero() {
               initial={{ opacity: 0, x: 100 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, delay: 0.4 }}
-              src="/images/photos/hero-team.avif"
+              src={image}
               loading="eager"
               alt="Team standing happily"
               sizes="(max-width: 991px) 100vw, (max-width: 1279px) 45vw, 508px"

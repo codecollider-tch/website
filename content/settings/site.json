@@ -1,0 +1,22 @@
+{
+  "hero": {
+    "badge": "Empower Your Brand",
+    "title": "Elevate Your Business with Expert Website Consulting",
+    "description": "Transform your online presence with expert website consulting. We provide tailored strategies and designs to drive your business's growth. Let's build your digital future together.",
+    "buttonText": "Know More",
+    "buttonLink": "/contact",
+    "image": "/images/photos/hero-team.avif"
+  },
+  "contact": {
+    "email": "info@zealconsult.com",
+    "phone": "+1 (800) 555-1234",
+    "address": "1234 Innovation Drive Suite 567 Cityville, State 89012 Country"
+  },
+  "social": {
+    "facebook": "https://www.facebook.com/",
+    "twitter": "https://www.x.com/",
+    "instagram": "https://www.instagram.com/",
+    "linkedin": ""
+  }
+}
+

@@ -4,58 +4,20 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useState } from 'react';
 
-const services = [
-  {
-    id: 1,
-    title: 'Business Website Audit',
-    description: 'Assess your website\'s performance and provide improvement recommendations.',
-    icon: '/images/icons/service-audit.svg',
-    iconHover: '/images/icons/service-audit-hover.svg',
-    href: '/services/business-website-audit',
-  },
-  {
-    id: 2,
-    title: 'Strategic Website Planning',
-    description: 'Create a strategy to align your website with business goals and audience needs.',
-    icon: '/images/icons/service-analytics.svg',
-    iconHover: '/images/icons/service-analytics-hover.svg',
-    href: '/services/strategic-website-planning',
-  },
-  {
-    id: 3,
-    title: 'Competitive Analysis',
-    description: 'Review competitors\' sites to uncover opportunities for differentiation.',
-    icon: '/images/icons/service-competitive.svg',
-    iconHover: '/images/icons/service-competitive-hover.svg',
-    href: '/services/competitive-analysis',
-  },
-  {
-    id: 4,
-    title: 'Conversion Rate Optimization',
-    description: 'Enhance design and functionality to boost user engagement and conversions.',
-    icon: '/images/icons/service-cro.svg',
-    iconHover: '/images/icons/service-cro-hover.svg',
-    href: '/services/conversion-rate-optimization',
-  },
-  {
-    id: 5,
-    title: 'Brand Positioning and Messaging',
-    description: 'Develop content and visuals to clearly communicate your brand\'s value.',
-    icon: '/images/icons/service-brand.svg',
-    iconHover: '/images/icons/service-brand-hover.svg',
-    href: '/services/brand-positioning-and-messaging',
-  },
-  {
-    id: 6,
-    title: 'Website Analytics and Reporting',
-    description: 'Develop content and visuals to clearly communicate your brand\'s value.',
-    icon: '/images/icons/service-analytics.svg',
-    iconHover: '/images/icons/service-analytics-hover.svg',
-    href: '/services/website-analytics-and-reporting',
-  },
-];
+interface Service {
+  id?: string;
+  title?: string | null;
+  description?: string | null;
+  icon?: string | null;
+  iconHover?: string | null;
+  href?: string | null;
+}
 
-function ServiceCard({ service, index }: { service: typeof services[0]; index: number }) {
+interface ServicesProps {
+  services?: Service[];
+}
+
+function ServiceCard({ service, index }: { service: Service; index: number }) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -67,7 +29,7 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
       className="card_grid_inner"
     >
       <Link
-        href={service.href}
+        href={service.href || '#'}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         className="card-regular w-inline-block"
@@ -77,7 +39,7 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
             <div className="card_icon_wr">
               <img
                 loading="lazy"
-                src={service.icon}
+                src={service.icon || ''}
                 alt=""
                 className="card_icon-default"
                 style={{
@@ -128,7 +90,7 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
   );
 }
 
-export default function Services() {
+export default function Services({ services = [] }: ServicesProps) {
   return (
     <section className="services">
       <div className="padding-global padding-section-large-xx">
@@ -168,7 +130,7 @@ export default function Services() {
           >
             <div className="cards_grid">
               {services.map((service, index) => (
-                <ServiceCard key={service.id} service={service} index={index} />
+                <ServiceCard key={service.id || index} service={service} index={index} />
               ))}
             </div>
           </motion.div>

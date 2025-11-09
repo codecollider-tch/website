@@ -12,13 +12,26 @@ const footerLinks = [
   { name: 'Contact', href: '/contact' },
 ];
 
-const socialLinks = [
-  { name: 'Facebook', href: 'https://www.facebook.com/', icon: '/images/icons/facebook.svg' },
-  { name: 'X', href: 'https://www.x.com/', icon: '/images/icons/x-twitter.svg' },
-  { name: 'Instagram', href: 'https://www.instagram.com/', icon: '/images/icons/instagram.svg' },
-];
+interface FooterProps {
+  contact?: {
+    email?: string | null;
+    phone?: string | null;
+    address?: string | null;
+  };
+  social?: {
+    facebook?: string | null;
+    twitter?: string | null;
+    instagram?: string | null;
+    linkedin?: string | null;
+  };
+}
 
-export default function Footer() {
+export default function Footer({ contact, social }: FooterProps) {
+  const socialLinks = [
+    { name: 'Facebook', href: social?.facebook || 'https://www.facebook.com/', icon: '/images/icons/facebook.svg' },
+    { name: 'X', href: social?.twitter || 'https://www.x.com/', icon: '/images/icons/x-twitter.svg' },
+    { name: 'Instagram', href: social?.instagram || 'https://www.instagram.com/', icon: '/images/icons/instagram.svg' },
+  ].filter(link => link.href);
   const [email, setEmail] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -124,22 +137,22 @@ export default function Footer() {
                   <h5 className="text-color-alternate">Address</h5>
                   <div className="padding-top padding-xxsmall"></div>
                   <div className="body_one text-light">
-                    1234 Innovation Drive Suite 567 Cityville, State 89012 Country
+                    {contact?.address || '1234 Innovation Drive Suite 567 Cityville, State 89012 Country'}
                   </div>
                 </div>
                 <div className="quick-contact">
                   <div className="qc_link_wr">
                     <h5 className="text-color-alternate">Email</h5>
                     <div className="padding-top padding-xxsmall"></div>
-                    <a href="mailto:info@zealconsult.com" className="link-light-grey">
-                      info@zealconsult.com
+                    <a href={`mailto:${contact?.email || 'info@zealconsult.com'}`} className="link-light-grey">
+                      {contact?.email || 'info@zealconsult.com'}
                     </a>
                   </div>
                   <div className="qc_link_wr">
                     <h5 className="text-color-alternate">Phone</h5>
                     <div className="padding-top padding-xxsmall"></div>
-                    <a href="tel:18005551234" className="link-light-grey">
-                      +1 (800) 555-1234
+                    <a href={`tel:${contact?.phone?.replace(/\s/g, '') || '18005551234'}`} className="link-light-grey">
+                      {contact?.phone || '+1 (800) 555-1234'}
                     </a>
                   </div>
                 </div>

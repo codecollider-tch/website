@@ -31,14 +31,14 @@ export default function Header() {
     <div
       className="nav_fixed"
       style={{
-        backgroundColor: isScrolled ? 'rgba(0, 0, 0, 0.95)' : 'rgba(0, 0, 0, 0)',
-        backdropFilter: isScrolled ? 'blur(10px)' : 'blur(0px)',
-        transition: 'all 0.3s'
+        willChange: 'background',
+        backgroundColor: isScrolled ? 'rgb(23, 29, 47)' : 'rgba(23, 29, 47, 0)',
+        transition: 'background-color 0.3s ease'
       }}
     >
       <div className="nav_component w-nav">
         <div className="nav_container">
-          <Link href="/" className="nav_brand w-nav-brand" aria-label="home">
+          <Link href="/" className="nav_brand w-nav-brand w--current" aria-label="home">
             <img
               src="/images/logo.svg"
               loading="lazy"

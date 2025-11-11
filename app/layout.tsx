@@ -12,6 +12,10 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: 'Code Collider - Expert Website Consulting',
   description: 'Elevate your business with expert website audits, strategic planning, and digital marketing solutions designed to drive growth and success.',
+  icons: {
+    icon: '/favicon.svg',
+    apple: '/favicon.svg',
+  },
   openGraph: {
     title: 'Code Collider - Expert Website Consulting',
     description: 'Elevate your business with expert website audits, strategic planning, and digital marketing solutions designed to drive growth and success.',

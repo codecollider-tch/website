@@ -26,7 +26,9 @@ yarn-debug.log*
 yarn-error.log*
 
 # local env files
-.env*.local
+.env*
+.env
+!.env.sample
 
 # vercel
 .vercel
@@ -37,6 +39,4 @@ next-env.d.ts
 
 # tinacms
 tina/__generated__
-.tina-lock
-public/admin
 

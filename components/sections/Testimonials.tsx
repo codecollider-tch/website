@@ -1,7 +1,8 @@
 'use client';
 
 import { motion, AnimatePresence } from 'framer-motion';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import Image from 'next/image';
 
 interface Testimonial {
   id?: string;
@@ -18,14 +19,13 @@ interface TestimonialsProps {
 }
 
 export default function Testimonials({ testimonials = [] }: TestimonialsProps) {
-  if (testimonials.length === 0) return null;
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
 
-  const nextTestimonial = () => {
+  const nextTestimonial = useCallback(() => {
     setDirection(1);
     setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-  };
+  }, [testimonials.length]);
 
   const prevTestimonial = () => {
     setDirection(-1);
@@ -38,25 +38,29 @@ export default function Testimonials({ testimonials = [] }: TestimonialsProps) {
   };
 
   useEffect(() => {
+    if (testimonials.length === 0) return;
+
     const timer = setInterval(() => {
       nextTestimonial();
     }, 6000);
 
     return () => clearInterval(timer);
-  }, [currentIndex]);
+  }, [currentIndex, nextTestimonial, testimonials.length]);
+
+  if (testimonials.length === 0) return null;
 
   const slideVariants = {
     enter: (direction: number) => ({
-      x: direction > 0 ? 1000 : -1000,
-      opacity: 0,
+      x: direction > 0 ? '100%' : '-100%',
+      opacity: 1,
     }),
     center: {
       x: 0,
       opacity: 1,
     },
     exit: (direction: number) => ({
-      x: direction < 0 ? 1000 : -1000,
-      opacity: 0,
+      x: direction < 0 ? '100%' : '-100%',
+      opacity: 1,
     }),
   };
 
@@ -66,8 +70,8 @@ export default function Testimonials({ testimonials = [] }: TestimonialsProps) {
         <div className="padding-global">
           <div className="container-large is-larger">
             <div className="testimonial-slider w-slider">
-              <div className="testimonial_slider_mask w-slider-mask">
-                <AnimatePresence initial={false} custom={direction} mode="wait">
+              <div className="testimonial_slider_mask w-slider-mask" style={{ position: 'relative', overflow: 'hidden', minHeight: '400px' }}>
+                <AnimatePresence initial={false} custom={direction}>
                   <motion.div
                     key={currentIndex}
                     custom={direction}
@@ -76,18 +80,20 @@ export default function Testimonials({ testimonials = [] }: TestimonialsProps) {
                     animate="center"
                     exit="exit"
                     transition={{
-                      x: { type: "spring", stiffness: 300, damping: 30 },
-                      opacity: { duration: 0.2 },
+                      x: { type: "tween", duration: 0.5, ease: "easeInOut" },
                     }}
                     className="testimonial_slide w-slide"
+                    style={{ position: 'absolute', width: '100%', left: 0, top: 0 }}
                   >
                     <div className="testimonial_slide-inner">
                       <div className="testimonial_thumbnail_wr">
-                        <img
-                          loading="lazy"
+                        <Image
                           src={testimonials[currentIndex].image || ''}
                           alt={testimonials[currentIndex].name || ''}
                           className="image_fit"
+                          width={500}
+                          height={500}
+                          style={{ objectFit: 'cover' }}
                         />
                       </div>
                       <div className="testimonial_content_wr">
@@ -104,11 +110,12 @@ export default function Testimonials({ testimonials = [] }: TestimonialsProps) {
                           </div>
                         </div>
                       </div>
-                      <img
+                      <Image
                         src="/images/icons/quotes.svg"
-                        loading="lazy"
                         alt="Quote"
                         className="quote_icon"
+                        width={80}
+                        height={80}
                       />
                     </div>
                   </motion.div>

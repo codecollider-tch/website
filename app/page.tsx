@@ -20,24 +20,24 @@ export default async function Home() {
 
   // Fetch all services
   const servicesResponse = await client.queries.serviceConnection();
-  const services = servicesResponse.data.serviceConnection.edges?.map((edge) => edge?.node) || [];
+  const services = (servicesResponse.data.serviceConnection.edges?.map((edge) => edge?.node).filter((node): node is NonNullable<typeof node> => node != null) || []);
 
   // Fetch all testimonials
   const testimonialsResponse = await client.queries.testimonialConnection();
-  const testimonials = testimonialsResponse.data.testimonialConnection.edges?.map((edge) => edge?.node) || [];
+  const testimonials = (testimonialsResponse.data.testimonialConnection.edges?.map((edge) => edge?.node).filter((node): node is NonNullable<typeof node> => node != null) || []);
 
   // Fetch latest posts
   const postsResponse = await client.queries.postConnection({
     sort: 'date',
     last: 3,
   });
-  const posts = postsResponse.data.postConnection.edges?.map((edge) => edge?.node) || [];
+  const posts = (postsResponse.data.postConnection.edges?.map((edge) => edge?.node).filter((node): node is NonNullable<typeof node> => node != null) || []);
 
   return (
     <>
       <Header />
       <main className="page-wrapper">
-        <Hero data={settings.hero} />
+        <Hero data={settings.hero!} />
         <Services services={services} />
         <Counters />
         <TwoColumn />
@@ -47,7 +47,7 @@ export default async function Home() {
         <LatestBlogs posts={posts} />
         <Partners />
       </main>
-      <Footer contact={settings.contact} social={settings.social} />
+      <Footer contact={settings.contact!} social={settings.social!} />
     </>
   );
 }

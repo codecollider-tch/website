@@ -2311,7 +2311,7 @@ figcaption {
 }
 
 .utility-page_component.is-password-protect_wr {
-  background-image: url("https://cdn.prod.website-files.com/676b3a9b61721719f3db80bf/676b3a9b61721719f3db8154_Hero%20(1).svg");
+  background-image: url("/images/hero-bg.svg");
   background-position: 0 0;
   background-size: cover;
 }
@@ -3609,7 +3609,7 @@ figcaption {
 .section_hero {
   color: #fff;
   background-color: #000;
-  background-image: url("https://cdn.prod.website-files.com/676b3a9b61721719f3db80bf/676b3a9b61721719f3db8154_Hero%20(1).svg");
+  background-image: url("/images/hero-bg.svg");
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -4797,7 +4797,7 @@ figcaption {
 }
 
 .faq_section {
-  background-image: url("https://cdn.prod.website-files.com/676b3a9b61721719f3db80bf/676b3a9b61721719f3db81b2_Frame%20462.jpg");
+  background-image: url("/images/frame-462.jpg");
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -5260,7 +5260,7 @@ figcaption {
 }
 
 .cta_comp {
-  background-image: url("https://cdn.prod.website-files.com/676b3a9b61721719f3db80bf/676b3a9b61721719f3db81a5_Banner.jpg");
+  background-image: url("/images/banner.jpg");
   background-position: 0 0;
   background-repeat: no-repeat;
   background-size: cover;

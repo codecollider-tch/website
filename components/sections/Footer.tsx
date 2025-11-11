@@ -144,8 +144,8 @@ export default function Footer({ contact, social }: FooterProps) {
                   <div className="qc_link_wr">
                     <h5 className="text-color-alternate">Email</h5>
                     <div className="padding-top padding-xxsmall"></div>
-                    <a href={`mailto:${contact?.email || 'info@zealconsult.com'}`} className="link-light-grey">
-                      {contact?.email || 'info@zealconsult.com'}
+                    <a href={`mailto:${contact?.email || 'info@code-collider.tech'}`} className="link-light-grey">
+                      {contact?.email || 'info@code-collider.tech'}
                     </a>
                   </div>
                   <div className="qc_link_wr">

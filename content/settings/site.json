@@ -8,7 +8,7 @@
     "image": "/images/photos/hero-team.avif"
   },
   "contact": {
-    "email": "info@zealconsult.com",
+    "email": "info@code-collider.tech",
     "phone": "+1 (800) 555-1234",
     "address": "1234 Innovation Drive Suite 567 Cityville, State 89012 Country"
   },
@@ -17,6 +17,20 @@
     "twitter": "https://www.x.com/",
     "instagram": "https://www.instagram.com/",
     "linkedin": ""
+  },
+  "contactPage": {
+    "hero": {
+      "badge": "Contact",
+      "title": "Always searching for improved solutions.",
+      "description": "Reach out for inquiries, support, or to schedule a consultation. We're here to assist you.",
+      "buttonText": "Know More",
+      "buttonLink": "/about-us",
+      "image": "/images/photos/contact-hero.avif"
+    },
+    "hours": {
+      "weekdays": "Mon-Sat: 8 AM - 06 PM",
+      "weekend": "Sun: day off"
+    }
   }
 }
 

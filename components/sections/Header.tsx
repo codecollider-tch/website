@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const navLinks = [
   { name: 'Home', href: '/' },
@@ -13,6 +14,7 @@ const navLinks = [
 ];
 
 export default function Header() {
+  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -49,15 +51,18 @@ export default function Header() {
           <nav className="nav_menu w-nav-menu">
             <div className="nav_menu_container">
               <div className="nav-menu-inner">
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.name}
-                    href={link.href}
-                    className="nav_menu_link w-nav-link"
-                  >
-                    {link.name}
-                  </Link>
-                ))}
+                {navLinks.map((link) => {
+                  const isActive = pathname === link.href;
+                  return (
+                    <Link
+                      key={link.name}
+                      href={link.href}
+                      className={`nav_menu_link w-nav-link ${isActive ? 'w--current' : ''}`}
+                    >
+                      {link.name}
+                    </Link>
+                  );
+                })}
               </div>
               <Link href="/contact" className="button is-nav w-button">
                 Get in Touch

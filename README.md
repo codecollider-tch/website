@@ -233,7 +233,7 @@ Developed by ZealousWeb | Powered by Webflow
 
 ## 🤝 Contact
 
-- Email: info@zealconsult.com
+- Email: info@code-collider.tech
 - Phone: +1 (800) 555-1234
 - Address: 1234 Innovation Drive Suite 567, Cityville, State 89012
 

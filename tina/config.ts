@@ -301,6 +301,111 @@ export default defineConfig({
               },
             ],
           },
+          {
+            type: "object",
+            name: "contactPage",
+            label: "Contact Page",
+            fields: [
+              {
+                type: "object",
+                name: "hero",
+                label: "Hero Section",
+                fields: [
+                  {
+                    type: "string",
+                    name: "badge",
+                    label: "Badge Text",
+                  },
+                  {
+                    type: "string",
+                    name: "title",
+                    label: "Title",
+                  },
+                  {
+                    type: "string",
+                    name: "description",
+                    label: "Description",
+                    ui: {
+                      component: "textarea",
+                    },
+                  },
+                  {
+                    type: "string",
+                    name: "buttonText",
+                    label: "Button Text",
+                  },
+                  {
+                    type: "string",
+                    name: "buttonLink",
+                    label: "Button Link",
+                  },
+                  {
+                    type: "image",
+                    name: "image",
+                    label: "Hero Image",
+                  },
+                ],
+              },
+              {
+                type: "object",
+                name: "hours",
+                label: "Opening Hours",
+                fields: [
+                  {
+                    type: "string",
+                    name: "weekdays",
+                    label: "Weekdays Hours",
+                  },
+                  {
+                    type: "string",
+                    name: "weekend",
+                    label: "Weekend Hours",
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+      {
+        name: "office",
+        label: "Office Locations",
+        path: "content/offices",
+        format: "json",
+        fields: [
+          {
+            type: "string",
+            name: "country",
+            label: "Country",
+            isTitle: true,
+            required: true,
+          },
+          {
+            type: "string",
+            name: "address",
+            label: "Address",
+            required: true,
+            ui: {
+              component: "textarea",
+            },
+          },
+          {
+            type: "string",
+            name: "email",
+            label: "Email",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "phone",
+            label: "Phone",
+            required: true,
+          },
+          {
+            type: "image",
+            name: "image",
+            label: "Office Image",
+          },
         ],
       },
     ],

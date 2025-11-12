@@ -5582,6 +5582,7 @@ figcaption {
 
   .nav_component {
     background-color: #0000;
+    padding-left: 0;
     padding-right: 0;
     position: relative;
   }
@@ -5590,7 +5591,28 @@ figcaption {
     z-index: 9999;
     grid-template-columns: 229px 1px;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 0;
+    padding-right: 1rem;
     position: relative;
+  }
+
+  .nav_brand {
+    width: auto;
+    height: 5rem;
+    padding-left: 0;
+  }
+
+  .nav_brand.w--current {
+    width: auto;
+    height: 5rem;
+    padding-left: 0;
+  }
+
+  .nav_logo {
+    height: 100%;
+    width: auto;
   }
 
   .nav_menu {

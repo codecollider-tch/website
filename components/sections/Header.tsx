@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -36,7 +35,7 @@ export default function Header() {
         transition: 'background-color 0.3s ease'
       }}
     >
-      <div className="nav_component w-nav">
+      <div className="nav_component w-nav" data-collapse="medium">
         <div className="nav_container">
           <Link href="/" className="nav_brand w-nav-brand w--current" aria-label="home">
             <img
@@ -48,7 +47,10 @@ export default function Header() {
             />
           </Link>
 
-          <nav className="nav_menu w-nav-menu">
+          <nav
+            className="nav_menu w-nav-menu"
+            style={isMobileMenuOpen ? { display: 'flex' } : undefined}
+          >
             <div className="nav_menu_container">
               <div className="nav-menu-inner">
                 {navLinks.map((link) => {
@@ -58,13 +60,18 @@ export default function Header() {
                       key={link.name}
                       href={link.href}
                       className={`nav_menu_link w-nav-link ${isActive ? 'w--current' : ''}`}
+                      onClick={() => setIsMobileMenuOpen(false)}
                     >
                       {link.name}
                     </Link>
                   );
                 })}
               </div>
-              <Link href="/contact" className="button is-nav w-button">
+              <Link
+                href="/contact"
+                className="button is-nav w-button"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
                 Get in Touch
               </Link>
               <div className="nav-btn-wrapper"></div>
@@ -72,7 +79,7 @@ export default function Header() {
           </nav>
 
           <div
-            className="nav_button w-nav-button"
+            className={`nav_button w-nav-button ${isMobileMenuOpen ? 'w--open' : ''}`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             role="button"
             tabIndex={0}
@@ -88,19 +95,7 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Mobile Menu Overlay */}
-        <AnimatePresence>
-          {isMobileMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              className="w-nav-overlay"
-            >
-              {/* Add mobile menu content here */}
-            </motion.div>
-          )}
-        </AnimatePresence>
+        <div className="w-nav-overlay" data-wf-ignore="" id="w-nav-overlay-0"></div>
       </div>
     </div>
   );

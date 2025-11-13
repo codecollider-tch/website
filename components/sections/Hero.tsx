@@ -63,13 +63,12 @@ export default function Hero({ data }: HeroProps) {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, delay: 0.4 }}
               className="hero_image object-position-left"
-              style={{ position: 'relative', width: '100%', height: '100%', minHeight: '400px' }}
             >
               <Image
                 src={image}
                 alt="Team standing happily"
-                fill
-                sizes="(max-width: 991px) 100vw, (max-width: 1279px) 45vw, 508px"
+                width={3000}
+                height={2000}
                 className="object-cover object-position-left"
                 priority
               />

@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState } from 'react';
 
 interface Service {
@@ -36,12 +37,12 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
       >
         <div className="card-inner">
           <div className="card-header">
-            <div className="card_icon_wr">
-              <img
-                loading="lazy"
-                src={service.icon || ''}
-                alt=""
-                className="card_icon-default"
+            <div className="card_icon_wr" style={{ position: 'relative', width: '100%', height: '48px' }}>
+              <Image
+                src={service.icon || '/images/icons/default-icon.svg'}
+                alt={service.title || 'Service icon'}
+                fill
+                className="card_icon-default object-contain"
                 style={{
                   filter: isHovered
                     ? 'brightness(0) saturate(100%) invert(77%) sepia(74%) saturate(433%) hue-rotate(353deg) brightness(103%) contrast(101%)'

@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState } from 'react';
 
 interface Post {
@@ -48,12 +49,13 @@ function BlogCard({ blog, index }: { blog: Post; index: number }) {
         onMouseLeave={() => setIsHovered(false)}
         className="posts_list-anchor w-inline-block"
       >
-        <div className="posts_list-thumb-wr">
-          <img
-            src={blog.image || ''}
-            loading="lazy"
-            alt=""
-            className="image_fit"
+        <div className="posts_list-thumb-wr" style={{ position: 'relative', width: '100%', height: '100%' }}>
+          <Image
+            src={blog.image || '/images/placeholder.jpg'}
+            alt={blog.title || 'Blog post image'}
+            fill
+            className="image_fit object-cover"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </div>
         <div className="posts_list-content-wr">

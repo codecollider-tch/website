@@ -14,6 +14,7 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'assets.tina.io',
+        pathname: '/**',
       },
     ],
   },

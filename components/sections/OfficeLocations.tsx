@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 interface Office {
   id?: string;
@@ -82,12 +83,13 @@ export default function OfficeLocations({ offices = defaultOffices }: OfficeLoca
               <div key={office.id || index} className="posts_list office_list">
                 <div className="posts_lists-item">
                   <div className="posts_list-anchor">
-                    <div className="posts_list-thumb-wr is-location-thumbnail">
-                      <img
-                        loading="lazy"
-                        src={office.image || ''}
+                    <div className="posts_list-thumb-wr is-location-thumbnail" style={{ position: 'relative', width: '100%', height: '100%' }}>
+                      <Image
+                        src={office.image || '/images/placeholder.jpg'}
                         alt={`${office.country} office`}
-                        className="image_fit"
+                        fill
+                        className="image_fit object-cover"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       />
                     </div>
                     <div className="posts_list-content-wr is-office">

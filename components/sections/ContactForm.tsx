@@ -41,7 +41,6 @@ export default function ContactForm() {
           subject: '',
           message: '',
         });
-        setTimeout(() => setIsSuccess(false), 5000);
       } else {
         setIsError(true);
       }
@@ -51,6 +50,11 @@ export default function ContactForm() {
     } finally {
       setIsSubmitting(false);
     }
+  };
+
+  const handleTryAgain = () => {
+    setIsSuccess(false);
+    setIsError(false);
   };
 
   const handleChange = (
@@ -91,145 +95,249 @@ export default function ContactForm() {
               transition={{ duration: 0.6 }}
               className="contact_form_comp max-width-custom1"
             >
-              <div className="title-small">Business consulting</div>
-              <div className="padding-bottom padding-xsmall"></div>
-              <h2>Get in touch</h2>
-              <div className="padding-bottom padding-custom1"></div>
+              {!isSuccess && !isError ? (
+                <>
+                  <div className="title-small">Business consulting</div>
+                  <div className="padding-bottom padding-xsmall"></div>
+                  <h2>Get in touch</h2>
+                  <div className="padding-bottom padding-custom1"></div>
 
-              <div className="form_wr padding-bottom w-form">
-                <form
-                  onSubmit={handleSubmit}
-                  className="form_inner-container"
-                >
-                  {/* First Row: First Name & Last Name */}
-                  <div className="form-row">
-                    <div className="form-group">
-                      <label htmlFor="firstName" className="form-label">
-                        First name
-                      </label>
-                      <input
-                        className="form-field w-input"
-                        maxLength={256}
-                        name="firstName"
-                        placeholder="First name"
-                        type="text"
-                        id="firstName"
-                        value={formData.firstName}
-                        onChange={handleChange}
+                  <div className="form_wr padding-bottom w-form">
+                    <form
+                      onSubmit={handleSubmit}
+                      className="form_inner-container"
+                    >
+                      {/* First Row: First Name & Last Name */}
+                      <div className="form-row">
+                        <div className="form-group">
+                          <label htmlFor="firstName" className="form-label">
+                            First name
+                          </label>
+                          <input
+                            className="form-field w-input"
+                            maxLength={256}
+                            name="firstName"
+                            placeholder="First name"
+                            type="text"
+                            id="firstName"
+                            value={formData.firstName}
+                            onChange={handleChange}
+                          />
+                        </div>
+                        <div className="form-group">
+                          <label htmlFor="lastName" className="form-label">
+                            Last name
+                          </label>
+                          <input
+                            className="form-field w-input"
+                            maxLength={256}
+                            name="lastName"
+                            placeholder="Last name"
+                            type="text"
+                            id="lastName"
+                            value={formData.lastName}
+                            onChange={handleChange}
+                          />
+                        </div>
+                      </div>
+
+                      {/* Second Row: Phone & Email */}
+                      <div className="form-row">
+                        <div className="form-group">
+                          <label htmlFor="phone" className="form-label">
+                            Your phone
+                          </label>
+                          <input
+                            className="form-field w-input"
+                            maxLength={256}
+                            name="phone"
+                            placeholder="Your phone"
+                            type="tel"
+                            id="phone"
+                            value={formData.phone}
+                            onChange={handleChange}
+                          />
+                        </div>
+                        <div className="form-group">
+                          <label htmlFor="email" className="form-label">
+                            Your email
+                          </label>
+                          <input
+                            className="form-field w-input"
+                            maxLength={256}
+                            name="email"
+                            placeholder="Your email"
+                            type="email"
+                            id="email"
+                            required
+                            value={formData.email}
+                            onChange={handleChange}
+                          />
+                        </div>
+                      </div>
+
+                      {/* Subject */}
+                      <div className="form-group">
+                        <label htmlFor="subject" className="form-label">
+                          Subject
+                        </label>
+                        <input
+                          className="form-field w-input"
+                          maxLength={256}
+                          name="subject"
+                          placeholder="Example Text"
+                          type="text"
+                          id="subject"
+                          required
+                          value={formData.subject}
+                          onChange={handleChange}
+                        />
+                      </div>
+
+                      {/* Message */}
+                      <div className="form-group">
+                        <label htmlFor="message" className="form-label">
+                          Your message
+                        </label>
+                        <textarea
+                          placeholder="Your Message"
+                          maxLength={5000}
+                          id="message"
+                          name="message"
+                          className="form-field is-text-area w-input"
+                          required
+                          value={formData.message}
+                          onChange={handleChange}
+                        />
+                      </div>
+
+                      {/* Submit Button */}
+                      <div className="w-layout-vflex form_submit_wr">
+                        <input
+                          type="submit"
+                          disabled={isSubmitting}
+                          className="button is-submit w-button"
+                          value={isSubmitting ? 'Please wait...' : 'Send message'}
+                        />
+                      </div>
+                    </form>
+                  </div>
+                </>
+              ) : isSuccess ? (
+                /* Success Message */
+                <div className="w-layout-vflex" style={{ alignItems: 'center', textAlign: 'center', padding: '4rem 2rem' }}>
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ type: 'spring', duration: 0.5 }}
+                    style={{ marginBottom: '2rem' }}
+                  >
+                    <svg
+                      width="80"
+                      height="80"
+                      viewBox="0 0 80 80"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle cx="40" cy="40" r="40" fill="#F5B841" />
+                      <path
+                        d="M25 40L35 50L55 30"
+                        stroke="white"
+                        strokeWidth="4"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       />
-                    </div>
-                    <div className="form-group">
-                      <label htmlFor="lastName" className="form-label">
-                        Last name
-                      </label>
-                      <input
-                        className="form-field w-input"
-                        maxLength={256}
-                        name="lastName"
-                        placeholder="Last name"
-                        type="text"
-                        id="lastName"
-                        value={formData.lastName}
-                        onChange={handleChange}
+                    </svg>
+                  </motion.div>
+
+                  <motion.h2
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2 }}
+                    style={{ marginBottom: '1rem' }}
+                  >
+                    Thank you!
+                  </motion.h2>
+
+                  <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 }}
+                    className="text-size-medium"
+                    style={{ marginBottom: '2rem', maxWidth: '500px' }}
+                  >
+                    Your message has been successfully sent. We&apos;ll get back to you as soon as possible.
+                  </motion.p>
+
+                  <motion.button
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4 }}
+                    onClick={handleTryAgain}
+                    className="button w-button"
+                    type="button"
+                  >
+                    Send another message
+                  </motion.button>
+                </div>
+              ) : (
+                /* Error Message */
+                <div className="w-layout-vflex" style={{ alignItems: 'center', textAlign: 'center', padding: '4rem 2rem' }}>
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ type: 'spring', duration: 0.5 }}
+                    style={{ marginBottom: '2rem' }}
+                  >
+                    <svg
+                      width="80"
+                      height="80"
+                      viewBox="0 0 80 80"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle cx="40" cy="40" r="40" fill="#EF4444" />
+                      <path
+                        d="M30 30L50 50M50 30L30 50"
+                        stroke="white"
+                        strokeWidth="4"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       />
-                    </div>
-                  </div>
+                    </svg>
+                  </motion.div>
 
-                  {/* Second Row: Phone & Email */}
-                  <div className="form-row">
-                    <div className="form-group">
-                      <label htmlFor="phone" className="form-label">
-                        Your phone
-                      </label>
-                      <input
-                        className="form-field w-input"
-                        maxLength={256}
-                        name="phone"
-                        placeholder="Your phone"
-                        type="tel"
-                        id="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
-                      />
-                    </div>
-                    <div className="form-group">
-                      <label htmlFor="email" className="form-label">
-                        Your email
-                      </label>
-                      <input
-                        className="form-field w-input"
-                        maxLength={256}
-                        name="email"
-                        placeholder="Your email"
-                        type="email"
-                        id="email"
-                        required
-                        value={formData.email}
-                        onChange={handleChange}
-                      />
-                    </div>
-                  </div>
+                  <motion.h2
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2 }}
+                    style={{ marginBottom: '1rem' }}
+                  >
+                    Oops! Something went wrong
+                  </motion.h2>
 
-                  {/* Subject */}
-                  <div className="form-group">
-                    <label htmlFor="subject" className="form-label">
-                      Subject
-                    </label>
-                    <input
-                      className="form-field w-input"
-                      maxLength={256}
-                      name="subject"
-                      placeholder="Example Text"
-                      type="text"
-                      id="subject"
-                      required
-                      value={formData.subject}
-                      onChange={handleChange}
-                    />
-                  </div>
+                  <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 }}
+                    className="text-size-medium"
+                    style={{ marginBottom: '2rem', maxWidth: '500px' }}
+                  >
+                    We couldn&apos;t send your message. Please try again or contact us directly via email.
+                  </motion.p>
 
-                  {/* Message */}
-                  <div className="form-group">
-                    <label htmlFor="message" className="form-label">
-                      Your message
-                    </label>
-                    <textarea
-                      placeholder="Your Message"
-                      maxLength={5000}
-                      id="message"
-                      name="message"
-                      className="form-field is-text-area w-input"
-                      required
-                      value={formData.message}
-                      onChange={handleChange}
-                    />
-                  </div>
-
-                  {/* Submit Button */}
-                  <div className="w-layout-vflex form_submit_wr">
-                    <input
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="button is-submit w-button"
-                      value={isSubmitting ? 'Please wait...' : 'Send message'}
-                    />
-                  </div>
-                </form>
-
-                {/* Success Message */}
-                {isSuccess && (
-                  <div className="form_message-success w-form-done">
-                    <div>Thank you! Your submission has been received!</div>
-                  </div>
-                )}
-
-                {/* Error Message */}
-                {isError && (
-                  <div className="w-form-fail">
-                    <div>Oops! Something went wrong while submitting the form.</div>
-                  </div>
-                )}
-              </div>
+                  <motion.button
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4 }}
+                    onClick={handleTryAgain}
+                    className="button w-button"
+                    type="button"
+                  >
+                    Try again
+                  </motion.button>
+                </div>
+              )}
             </motion.div>
           </div>
         </div>

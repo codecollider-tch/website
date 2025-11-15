@@ -7,7 +7,7 @@
     "node": ">=22.0.0"
   },
   "scripts": {
-    "dev": "tinacms dev -c \"next dev --turbopack\"",
+    "dev": "tinacms dev -c \"NODE_OPTIONS='--inspect' next dev --turbopack\"",
     "build": "tinacms build --skip-cloud-checks && next build",
     "start": "next start",
     "lint": "next lint"

@@ -134,12 +134,12 @@ export default defineConfig({
             },
           },
           {
-            type: "image",
+            type: "string",
             name: "icon",
             label: "Icon",
           },
           {
-            type: "image",
+            type: "string",
             name: "iconHover",
             label: "Icon Hover State",
           },

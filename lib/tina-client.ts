@@ -7,8 +7,10 @@
  */
 
 // Import the auto-generated client
-// Uncomment after first build:
-// import client from '../tina/__generated__/client';
+import client from '../tina/__generated__/client';
+
+// Export as default for convenience
+export default client;
 
 /**
  * Example: Fetch a single document by relativePath

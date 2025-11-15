@@ -18,9 +18,9 @@ interface ContactInfoProps {
 }
 
 export default function ContactInfo({ data }: ContactInfoProps) {
-  const address = data?.address || '1234 Innovation DriveSuite 567Cityville,State 89012Country';
-  const email = data?.email || 'info@code-collider.tech';
-  const phone = data?.phone || '+1 (800) 555-1234';
+  const address = data?.address || '';
+  const email = data?.email || '';
+  const phone = data?.phone || '';
   const weekdaysHours = data?.hours?.weekdays || 'Mon-Sat: 8 AM - 06 PM';
   const weekendHours = data?.hours?.weekend || 'Sun: day off';
 

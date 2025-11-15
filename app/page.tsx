@@ -33,6 +33,10 @@ export default async function Home() {
   });
   const posts = (postsResponse.data.postConnection.edges?.map((edge) => edge?.node).filter((node): node is NonNullable<typeof node> => node != null) || []);
 
+  // Fetch all sectors
+  const sectorsResponse = await client.queries.sectorConnection();
+  const sectors = (sectorsResponse.data.sectorConnection.edges?.map((edge) => edge?.node).filter((node): node is NonNullable<typeof node> => node != null) || []);
+
   return (
     <>
       <Header />
@@ -41,7 +45,7 @@ export default async function Home() {
         <Services services={services} />
         <Counters />
         <TwoColumn />
-        <Sectors />
+        <Sectors sectors={sectors} />
         <FiftyFifty />
         <Testimonials testimonials={testimonials} />
         <LatestBlogs posts={posts} />

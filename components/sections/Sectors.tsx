@@ -3,18 +3,17 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 
-const sectors = [
-  { id: 1, title: 'Technology', image: '/images/photos/sector-technology.avif' },
-  { id: 2, title: 'Healthcare', image: '/images/photos/sector-healthcare.avif' },
-  { id: 3, title: 'Financial Services', image: '/images/photos/sector-financial.avif' },
-  { id: 4, title: 'Manufacturing', image: '/images/photos/sector-manufacturing.avif' },
-  { id: 5, title: 'Retail', image: '/images/photos/sector-retail.avif' },
-  { id: 6, title: 'Energy', image: '/images/photos/sector-energy.avif' },
-  { id: 7, title: 'Real Estate', image: '/images/photos/sector-realestate.avif' },
-  { id: 8, title: 'Education', image: '/images/photos/sector-education.avif' },
-];
+interface Sector {
+  id?: string;
+  title?: string | null;
+  image?: string | null;
+}
 
-function SectorCard({ sector }: { sector: typeof sectors[0] }) {
+interface SectorsProps {
+  sectors?: Sector[];
+}
+
+function SectorCard({ sector }: { sector: Sector }) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -24,9 +23,9 @@ function SectorCard({ sector }: { sector: typeof sectors[0] }) {
       onMouseLeave={() => setIsHovered(false)}
     >
       <img
-        src={sector.image}
+        src={sector.image || '/images/photos/default-sector.avif'}
         loading="lazy"
-        alt={sector.title}
+        alt={sector.title || 'Sector'}
         className="aspect-ratio-large"
       />
       <div className="sector_thumbnail-overlay"></div>
@@ -35,7 +34,7 @@ function SectorCard({ sector }: { sector: typeof sectors[0] }) {
   );
 }
 
-export default function Sectors() {
+export default function Sectors({ sectors = [] }: SectorsProps) {
   return (
     <section className="padding-section-large-xx sectors">
       <div className="padding-global">
@@ -66,8 +65,8 @@ export default function Sectors() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="four_column_grid"
           >
-            {sectors.map((sector) => (
-              <SectorCard key={sector.id} sector={sector} />
+            {sectors.map((sector, index) => (
+              <SectorCard key={sector.id || index} sector={sector} />
             ))}
           </motion.div>
         </div>

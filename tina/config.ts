@@ -408,6 +408,27 @@ export default defineConfig({
           },
         ],
       },
+      {
+        name: "sector",
+        label: "Sectors",
+        path: "content/sectors",
+        format: "json",
+        fields: [
+          {
+            type: "string",
+            name: "title",
+            label: "Title",
+            isTitle: true,
+            required: true,
+          },
+          {
+            type: "image",
+            name: "image",
+            label: "Sector Image",
+            required: true,
+          },
+        ],
+      },
     ],
   },
 });

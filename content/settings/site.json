@@ -31,5 +31,55 @@
       "weekdays": "Mon-Sat: 8 AM - 06 PM",
       "weekend": "Sun: day off"
     }
+  },
+  "aboutPage": {
+    "hero": {
+      "badge": "About",
+      "title": "We assist our clients in maintaining a clear vision.",
+      "description": "Our services provide a strategic overview, keeping clients focused on long-term goals.",
+      "buttonText": "Get in Touch",
+      "buttonLink": "/contact",
+      "image": "/images/photos/about-hero.avif"
+    },
+    "expertiseTitle": "Empowering your business to expand and thrive",
+    "expertise": [
+      {
+        "title": "Our Expertise",
+        "description": "We offer specialized knowledge and skills in delivering innovative solutions tailored to your business needs, ensuring optimal results and growth.",
+        "icon": "/images/icons/expertise-icon.svg"
+      },
+      {
+        "title": "Our Approach",
+        "description": "Our method combines strategic planning with hands-on execution, focusing on collaboration and adaptability to achieve your goals effectively.",
+        "icon": "/images/icons/approach-icon.svg"
+      },
+      {
+        "title": "Where We Operate",
+        "description": "We serve clients globally, providing top-tier consulting services in various regions, with a focus on delivering impactful results wherever you are.",
+        "icon": "/images/icons/location-icon.svg"
+      }
+    ],
+    "stats": [
+      {
+        "title": "Client Satisfaction",
+        "percentage": 95
+      },
+      {
+        "title": "Project Success Rate",
+        "percentage": 90
+      },
+      {
+        "title": "Client Retention Ratio",
+        "percentage": 92
+      }
+    ],
+    "cuttingEdge": {
+      "badge": "Solution",
+      "title": "Cutting-Edge Solutions for Modern Enterprises",
+      "description": "Delivering innovative strategies and advanced solutions to drive success in today's evolving business landscape. Empowering modern enterprises with the tools to stay ahead of the curve.",
+      "buttonText": "Get In Touch",
+      "buttonLink": "/contact",
+      "image": "/images/photos/cutting-edge.avif"
+    }
   }
 }

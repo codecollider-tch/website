@@ -365,6 +365,146 @@ export default defineConfig({
               },
             ],
           },
+          {
+            type: "object",
+            name: "aboutPage",
+            label: "About Page",
+            fields: [
+              {
+                type: "object",
+                name: "hero",
+                label: "Hero Section",
+                fields: [
+                  {
+                    type: "string",
+                    name: "badge",
+                    label: "Badge Text",
+                  },
+                  {
+                    type: "string",
+                    name: "title",
+                    label: "Title",
+                  },
+                  {
+                    type: "string",
+                    name: "description",
+                    label: "Description",
+                    ui: {
+                      component: "textarea",
+                    },
+                  },
+                  {
+                    type: "string",
+                    name: "buttonText",
+                    label: "Button Text",
+                  },
+                  {
+                    type: "string",
+                    name: "buttonLink",
+                    label: "Button Link",
+                  },
+                  {
+                    type: "image",
+                    name: "image",
+                    label: "Hero Image",
+                  },
+                ],
+              },
+              {
+                type: "string",
+                name: "expertiseTitle",
+                label: "Expertise Section Title",
+              },
+              {
+                type: "object",
+                name: "expertise",
+                label: "Expertise Cards",
+                list: true,
+                fields: [
+                  {
+                    type: "string",
+                    name: "title",
+                    label: "Title",
+                    required: true,
+                  },
+                  {
+                    type: "string",
+                    name: "description",
+                    label: "Description",
+                    required: true,
+                    ui: {
+                      component: "textarea",
+                    },
+                  },
+                  {
+                    type: "string",
+                    name: "icon",
+                    label: "Icon Path",
+                  },
+                ],
+              },
+              {
+                type: "object",
+                name: "stats",
+                label: "Statistics",
+                list: true,
+                fields: [
+                  {
+                    type: "string",
+                    name: "title",
+                    label: "Title",
+                    required: true,
+                  },
+                  {
+                    type: "number",
+                    name: "percentage",
+                    label: "Percentage",
+                    required: true,
+                  },
+                ],
+              },
+              {
+                type: "object",
+                name: "cuttingEdge",
+                label: "Cutting-Edge Solutions Section",
+                fields: [
+                  {
+                    type: "string",
+                    name: "badge",
+                    label: "Badge Text",
+                  },
+                  {
+                    type: "string",
+                    name: "title",
+                    label: "Title",
+                  },
+                  {
+                    type: "string",
+                    name: "description",
+                    label: "Description",
+                    ui: {
+                      component: "textarea",
+                    },
+                  },
+                  {
+                    type: "string",
+                    name: "buttonText",
+                    label: "Button Text",
+                  },
+                  {
+                    type: "string",
+                    name: "buttonLink",
+                    label: "Button Link",
+                  },
+                  {
+                    type: "image",
+                    name: "image",
+                    label: "Section Image",
+                  },
+                ],
+              },
+            ],
+          },
         ],
       },
       {
@@ -426,6 +566,57 @@ export default defineConfig({
             name: "image",
             label: "Sector Image",
             required: true,
+          },
+        ],
+      },
+      {
+        name: "team",
+        label: "Team Members",
+        path: "content/team",
+        format: "json",
+        fields: [
+          {
+            type: "string",
+            name: "name",
+            label: "Name",
+            isTitle: true,
+            required: true,
+          },
+          {
+            type: "string",
+            name: "position",
+            label: "Position",
+            required: true,
+          },
+          {
+            type: "image",
+            name: "image",
+            label: "Photo",
+            required: true,
+          },
+        ],
+      },
+      {
+        name: "faq",
+        label: "FAQ",
+        path: "content/faq",
+        format: "json",
+        fields: [
+          {
+            type: "string",
+            name: "question",
+            label: "Question",
+            isTitle: true,
+            required: true,
+          },
+          {
+            type: "string",
+            name: "answer",
+            label: "Answer",
+            required: true,
+            ui: {
+              component: "textarea",
+            },
           },
         ],
       },

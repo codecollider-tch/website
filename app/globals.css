@@ -4762,6 +4762,120 @@ figcaption {
   margin-bottom: 1.25rem;
 }
 
+/* Team Profile Page Styles */
+
+/* Hero section with image and name */
+.team_profile_hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+}
+
+.team_profile_image_wrapper {
+  width: 100%;
+  max-width: 20rem;
+  position: relative;
+  background-color: var(--zc-base-color-brand--zc-citrus-green);
+  aspect-ratio: 1;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.team_profile_image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.team_profile_header_text {
+  text-align: center;
+}
+
+.team_profile_name {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.team_profile_position {
+  font-size: 1.25rem;
+  font-weight: 600;
+  opacity: 0.7;
+  text-transform: capitalize;
+  color: #fff;
+  margin-bottom: 0;
+}
+
+/* Biography section on white background */
+.team_profile_bio_wrapper {
+  max-width: 56rem;
+  margin: 0 auto;
+}
+
+.rich_text_content {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--zc-base-color-brand--zc-yankees-blue);
+}
+
+.rich_text_content p {
+  margin-bottom: 1.5rem;
+}
+
+.rich_text_content p:last-child {
+  margin-bottom: 0;
+}
+
+/* Desktop */
+@media screen and (min-width: 768px) {
+  .team_profile_hero {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 3rem;
+  }
+
+  .team_profile_image_wrapper {
+    max-width: 22rem;
+    flex-shrink: 0;
+  }
+
+  .team_profile_header_text {
+    text-align: left;
+    padding-top: 2rem;
+  }
+
+  .team_profile_name {
+    font-size: 3.5rem;
+  }
+
+  .team_profile_position {
+    font-size: 1.5rem;
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 767px) {
+  .team_profile_name {
+    font-size: 2rem;
+  }
+
+  .team_profile_position {
+    font-size: 1.125rem;
+  }
+
+  .rich_text_content {
+    font-size: 1rem;
+  }
+}
+
 .feature_wr {
   grid-column-gap: 1.25rem;
   grid-row-gap: 1.25rem;

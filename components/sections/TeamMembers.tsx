@@ -1,11 +1,15 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 
 import { motion } from "framer-motion";
 
 interface TeamMember {
   id?: string;
+  _sys?: {
+    filename?: string;
+  };
   name?: string | null;
   position?: string | null;
   image?: string | null;
@@ -39,23 +43,33 @@ export default function TeamMembers({ members = [] }: TeamMembersProps) {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="four_column_grid"
           >
-            {members.map((member, index) => (
-              <div key={member.id || index} className="team_member_col">
-                <div className="team_thumbnail_wr">
-                  <Image
-                    src={member.image || "/images/placeholder.jpg"}
-                    alt={member.name || "Team Member"}
-                    width={300}
-                    height={300}
-                    className="image_fit"
-                  />
-                </div>
-                <div className="team_member_info">
-                  <h4 className="team_member_title">{member.name}</h4>
-                  <p className="team_member_pos">{member.position}</p>
-                </div>
-              </div>
-            ))}
+            {members.map((member, index) => {
+              const slug = member._sys?.filename;
+              const href = slug ? `/team/${slug}` : "#";
+
+              return (
+                <Link
+                  key={member.id || index}
+                  href={href}
+                  className="team_member_col"
+                  style={{ cursor: "pointer" }}
+                >
+                  <div className="team_thumbnail_wr">
+                    <Image
+                      src={member.image || "/images/placeholder.jpg"}
+                      alt={member.name || "Team Member"}
+                      width={300}
+                      height={300}
+                      className="image_fit"
+                    />
+                  </div>
+                  <div className="team_member_info">
+                    <h4 className="team_member_title">{member.name}</h4>
+                    <p className="team_member_pos">{member.position}</p>
+                  </div>
+                </Link>
+              );
+            })}
           </motion.div>
         </div>
       </div>

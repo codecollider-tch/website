@@ -574,6 +574,11 @@ export default defineConfig({
         label: "Team Members",
         path: "content/team",
         format: "json",
+        ui: {
+          router: ({ document }) => {
+            return `/team/${document._sys.filename}`;
+          },
+        },
         fields: [
           {
             type: "string",
@@ -593,6 +598,14 @@ export default defineConfig({
             name: "image",
             label: "Photo",
             required: true,
+          },
+          {
+            type: "string",
+            name: "bio",
+            label: "Biography",
+            ui: {
+              component: "textarea",
+            },
           },
         ],
       },

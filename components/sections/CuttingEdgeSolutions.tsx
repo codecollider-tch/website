@@ -1,7 +1,8 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import Link from 'next/link';
+import Link from "next/link";
+
+import { motion } from "framer-motion";
 
 interface CuttingEdgeSolutionsProps {
   badge?: string | null;
@@ -13,10 +14,10 @@ interface CuttingEdgeSolutionsProps {
 }
 
 export default function CuttingEdgeSolutions({
-  badge = 'Solution',
-  title = 'Cutting-Edge Solutions for Modern Enterprises',
+  badge = "Solution",
+  title = "Cutting-Edge Solutions for Modern Enterprises",
   description = "Delivering innovative strategies and advanced solutions to drive success in today's evolving business landscape. Empowering modern enterprises with the tools to stay ahead of the curve.",
-  buttonText = 'Get In Touch',
+  buttonText = "Get In Touch",
   buttonLink,
   image,
 }: CuttingEdgeSolutionsProps) {
@@ -40,7 +41,7 @@ export default function CuttingEdgeSolutions({
               </div>
               <p className="body_one text-lighter">{description}</p>
               <div className="btn_wr">
-                <Link href={buttonLink || '/contact'} className="button is-medium w-button">
+                <Link href={buttonLink || "/contact"} className="button is-medium w-button">
                   {buttonText}
                 </Link>
               </div>
@@ -48,7 +49,7 @@ export default function CuttingEdgeSolutions({
             <div className="fifty_fifty-grid-right">
               <div className="fifty_fifty_img_wr">
                 <img
-                  src={image || '/images/photos/cutting-edge.avif'}
+                  src={image || "/images/photos/cutting-edge.avif"}
                   loading="lazy"
                   alt="Employee Team"
                   className="image_fit"
@@ -61,4 +62,3 @@ export default function CuttingEdgeSolutions({
     </section>
   );
 }
-

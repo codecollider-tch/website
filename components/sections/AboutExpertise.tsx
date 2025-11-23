@@ -1,7 +1,8 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import Image from 'next/image';
+import Image from "next/image";
+
+import { motion } from "framer-motion";
 
 interface ExpertiseCard {
   title?: string | null;
@@ -14,7 +15,10 @@ interface AboutExpertiseProps {
   expertise?: ExpertiseCard[];
 }
 
-export default function AboutExpertise({ expertiseTitle = 'Empowering your business to expand and thrive', expertise = [] }: AboutExpertiseProps) {
+export default function AboutExpertise({
+  expertiseTitle = "Empowering your business to expand and thrive",
+  expertise = [],
+}: AboutExpertiseProps) {
   return (
     <section className="helping_business_block">
       <div className="padding-global">
@@ -44,7 +48,7 @@ export default function AboutExpertise({ expertiseTitle = 'Empowering your busin
                 {card.icon && (
                   <Image
                     src={card.icon}
-                    alt={card.title || ''}
+                    alt={card.title || ""}
                     width={60}
                     height={60}
                     className="icon_60"
@@ -60,4 +64,3 @@ export default function AboutExpertise({ expertiseTitle = 'Empowering your busin
     </section>
   );
 }
-

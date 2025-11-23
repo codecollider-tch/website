@@ -1,7 +1,8 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import Link from 'next/link';
+import Link from "next/link";
+
+import { motion } from "framer-motion";
 
 export default function FiftyFifty() {
   return (
@@ -20,12 +21,12 @@ export default function FiftyFifty() {
               <div>
                 <div className="title-small is-neon">Solution</div>
                 <div className="padding-bottom padding-xsmall"></div>
-                <h2 className="text-color-white">
-                  Cutting-Edge Solutions for Modern Enterprises
-                </h2>
+                <h2 className="text-color-white">Cutting-Edge Solutions for Modern Enterprises</h2>
               </div>
               <p className="body_one text-lighter">
-                Delivering innovative strategies and advanced solutions to drive success in today&apos;s evolving business landscape. Empowering modern enterprises with the tools to stay ahead of the curve.
+                Delivering innovative strategies and advanced solutions to drive success in
+                today&apos;s evolving business landscape. Empowering modern enterprises with the
+                tools to stay ahead of the curve.
               </p>
               <div className="btn_wr">
                 <Link href="/contact" className="button is-medium w-button">

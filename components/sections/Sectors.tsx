@@ -1,7 +1,8 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useState } from "react";
+
+import { motion } from "framer-motion";
 
 interface Sector {
   id?: string;
@@ -23,9 +24,9 @@ function SectorCard({ sector }: { sector: Sector }) {
       onMouseLeave={() => setIsHovered(false)}
     >
       <img
-        src={sector.image || '/images/photos/default-sector.avif'}
+        src={sector.image || "/images/photos/default-sector.avif"}
         loading="lazy"
-        alt={sector.title || 'Sector'}
+        alt={sector.title || "Sector"}
         className="aspect-ratio-large"
       />
       <div className="sector_thumbnail-overlay"></div>

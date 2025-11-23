@@ -5,9 +5,8 @@
  * After running `pnpm dev` or `pnpm build`, TinaCMS generates a client
  * at `tina/__generated__/client`.
  */
-
 // Import the auto-generated client
-import client from '../tina/__generated__/client';
+import client from "../tina/__generated__/client";
 
 // Export as default for convenience
 export default client;
@@ -154,4 +153,3 @@ export async function fetchAllTestimonials() {
   // Temporary placeholder
   return null;
 }
-

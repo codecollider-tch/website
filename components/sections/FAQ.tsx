@@ -1,7 +1,8 @@
-'use client';
+"use client";
 
-import { motion, AnimatePresence } from 'framer-motion';
-import { useState } from 'react';
+import { useState } from "react";
+
+import { AnimatePresence, motion } from "framer-motion";
 
 interface FAQItem {
   id?: string;
@@ -48,12 +49,12 @@ export default function FAQ({ faqs = [] }: FAQProps) {
               <div
                 key={faq.id || index}
                 className="faq_item w-dropdown"
-                style={{ marginBottom: index < faqs.length - 1 ? '1.5rem' : 0 }}
+                style={{ marginBottom: index < faqs.length - 1 ? "1.5rem" : 0 }}
               >
                 <div
                   className="faq_title_block w-dropdown-toggle"
                   onClick={() => toggleFAQ(index)}
-                  style={{ cursor: 'pointer' }}
+                  style={{ cursor: "pointer" }}
                 >
                   <div className="heading-style-h4 faq_title">{faq.question}</div>
                   <div className="faq_icon">
@@ -69,11 +70,11 @@ export default function FAQ({ faqs = [] }: FAQProps) {
                   {openIndex === index && (
                     <motion.div
                       initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
+                      animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3 }}
                       className="faq_content_block w-dropdown-list"
-                      style={{ overflow: 'hidden' }}
+                      style={{ overflow: "hidden" }}
                     >
                       <div className="faq_content_inner">
                         <p className="text-lighter">{faq.answer}</p>
@@ -89,4 +90,3 @@ export default function FAQ({ faqs = [] }: FAQProps) {
     </section>
   );
 }
-

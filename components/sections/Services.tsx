@@ -1,9 +1,11 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import Link from 'next/link';
-import Image from 'next/image';
-import { useState } from 'react';
+import { useState } from "react";
+
+import Image from "next/image";
+import Link from "next/link";
+
+import { motion } from "framer-motion";
 
 interface Service {
   id?: string;
@@ -30,24 +32,27 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
       className="card_grid_inner"
     >
       <Link
-        href={service.href || '#'}
+        href={service.href || "#"}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         className="card-regular w-inline-block"
       >
         <div className="card-inner">
           <div className="card-header">
-            <div className="card_icon_wr" style={{ position: 'relative', width: '100%', height: '48px' }}>
+            <div
+              className="card_icon_wr"
+              style={{ position: "relative", width: "100%", height: "48px" }}
+            >
               <Image
-                src={service.icon || '/images/icons/default-icon.svg'}
-                alt={service.title || 'Service icon'}
+                src={service.icon || "/images/icons/default-icon.svg"}
+                alt={service.title || "Service icon"}
                 fill
                 className="card_icon-default object-contain"
                 style={{
                   filter: isHovered
-                    ? 'brightness(0) saturate(100%) invert(77%) sepia(74%) saturate(433%) hue-rotate(353deg) brightness(103%) contrast(101%)'
-                    : 'none',
-                  transition: 'filter 0.3s'
+                    ? "brightness(0) saturate(100%) invert(77%) sepia(74%) saturate(433%) hue-rotate(353deg) brightness(103%) contrast(101%)"
+                    : "none",
+                  transition: "filter 0.3s",
                 }}
               />
             </div>
@@ -110,7 +115,8 @@ export default function Services({ services = [] }: ServicesProps) {
               <h2>What services do we offer for your business</h2>
               <div className="title_block-right">
                 <p className="body_one-dark">
-                  See how our tailored solutions can boost your business. From planning to support, we provide the expertise to drive your success.
+                  See how our tailored solutions can boost your business. From planning to support,
+                  we provide the expertise to drive your success.
                 </p>
                 <div className="padding-bottom padding-regular"></div>
                 <Link href="/services" className="text-link-dark">

@@ -1,8 +1,9 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import Image from 'next/image';
-import Link from 'next/link';
+import Image from "next/image";
+import Link from "next/link";
+
+import { motion } from "framer-motion";
 
 interface HeroProps {
   data?: {
@@ -16,12 +17,14 @@ interface HeroProps {
 }
 
 export default function Hero({ data }: HeroProps) {
-  const badge = data?.badge || 'Empower Your Brand';
-  const title = data?.title || 'Elevate Your Business with Expert Website Consulting';
-  const description = data?.description || "Transform your online presence with expert website consulting. We provide tailored strategies and designs to drive your business's growth. Let's build your digital future together.";
-  const buttonText = data?.buttonText || 'Know More';
-  const buttonLink = data?.buttonLink || '/contact';
-  const image = data?.image || '/images/photos/hero-team.avif';
+  const badge = data?.badge || "Empower Your Brand";
+  const title = data?.title || "Elevate Your Business with Expert Website Consulting";
+  const description =
+    data?.description ||
+    "Transform your online presence with expert website consulting. We provide tailored strategies and designs to drive your business's growth. Let's build your digital future together.";
+  const buttonText = data?.buttonText || "Know More";
+  const buttonLink = data?.buttonLink || "/contact";
+  const image = data?.image || "/images/photos/hero-team.avif";
 
   return (
     <section className="section_hero">
@@ -39,19 +42,12 @@ export default function Hero({ data }: HeroProps) {
               <div>
                 <div className="title-small is-neon">{badge}</div>
                 <div className="padding-bottom padding-xsmall"></div>
-                <h1 className="text-color-white heading-style-h2">
-                  {title}
-                </h1>
+                <h1 className="text-color-white heading-style-h2">{title}</h1>
                 <div className="padding-bottom padding-xsmall"></div>
-                <p className="body_one">
-                  {description}
-                </p>
+                <p className="body_one">{description}</p>
               </div>
               <div>
-                <Link
-                  href={buttonLink}
-                  className="button is-medium w-button"
-                >
+                <Link href={buttonLink} className="button is-medium w-button">
                   {buttonText}
                 </Link>
               </div>
@@ -63,14 +59,14 @@ export default function Hero({ data }: HeroProps) {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, delay: 0.4 }}
               className="hero_image object-position-left"
-              style={{ position: 'relative', width: '100%', height: '100%', minHeight: '400px' }}
+              style={{ position: "relative", width: "100%", height: "100%", minHeight: "400px" }}
             >
               <Image
                 src={image}
                 alt="Team standing happily"
                 fill
                 sizes="(max-width: 991px) 100vw, (max-width: 1279px) 45vw, 508px"
-                className="object-cover object-position-left"
+                className="object-position-left object-cover"
                 priority
               />
             </motion.div>

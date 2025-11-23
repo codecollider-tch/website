@@ -1,15 +1,16 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { useEffect, useState } from "react";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const navLinks = [
-  { name: 'Home', href: '/' },
-  { name: 'Services', href: '/services' },
-  { name: 'About', href: '/about-us' },
-  { name: 'Blogs', href: '/blog' },
-  { name: 'Contact', href: '/contact' },
+  { name: "Home", href: "/" },
+  { name: "Services", href: "/services" },
+  { name: "About", href: "/about-us" },
+  { name: "Blogs", href: "/blog" },
+  { name: "Contact", href: "/contact" },
 ];
 
 export default function Header() {
@@ -22,17 +23,17 @@ export default function Header() {
       setIsScrolled(window.scrollY > 50);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <div
       className="nav_fixed"
       style={{
-        willChange: 'background',
-        backgroundColor: isScrolled ? 'rgb(23, 29, 47)' : 'rgba(23, 29, 47, 0)',
-        transition: 'background-color 0.3s ease'
+        willChange: "background",
+        backgroundColor: isScrolled ? "rgb(23, 29, 47)" : "rgba(23, 29, 47, 0)",
+        transition: "background-color 0.3s ease",
       }}
     >
       <div className="nav_component w-nav" data-collapse="medium">
@@ -49,7 +50,7 @@ export default function Header() {
 
           <nav
             className="nav_menu w-nav-menu"
-            style={isMobileMenuOpen ? { display: 'flex' } : undefined}
+            style={isMobileMenuOpen ? { display: "flex" } : undefined}
           >
             <div className="nav_menu_container">
               <div className="nav-menu-inner">
@@ -59,7 +60,7 @@ export default function Header() {
                     <Link
                       key={link.name}
                       href={link.href}
-                      className={`nav_menu_link w-nav-link ${isActive ? 'w--current' : ''}`}
+                      className={`nav_menu_link w-nav-link ${isActive ? "w--current" : ""}`}
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       {link.name}
@@ -79,7 +80,7 @@ export default function Header() {
           </nav>
 
           <div
-            className={`nav_button w-nav-button ${isMobileMenuOpen ? 'w--open' : ''}`}
+            className={`nav_button w-nav-button ${isMobileMenuOpen ? "w--open" : ""}`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             role="button"
             tabIndex={0}

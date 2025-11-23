@@ -1,6 +1,8 @@
-import { notFound } from 'next/navigation';
-import client from '@/lib/tina-client';
-import { TinaMarkdown } from 'tinacms/dist/rich-text';
+import { notFound } from "next/navigation";
+
+import { TinaMarkdown } from "tinacms/dist/rich-text";
+
+import client from "@/lib/tina-client";
 
 interface PageProps {
   params: Promise<{
@@ -16,7 +18,7 @@ export async function generateStaticParams() {
     .map((page) => {
       const filename = page?.node?._sys?.filename;
       // Skip the home page as it's handled by app/page.tsx
-      if (filename === 'home') return null;
+      if (filename === "home") return null;
       return {
         slug: filename,
       };
@@ -40,16 +42,16 @@ export default async function Page({ params }: PageProps) {
 
     return (
       <div className="min-h-screen bg-white">
-        <main className="max-w-4xl mx-auto px-4 py-16">
+        <main className="mx-auto max-w-4xl px-4 py-16">
           <article className="prose prose-lg max-w-none">
-            <h1 className="text-4xl font-bold mb-8">{data.page.title}</h1>
+            <h1 className="mb-8 text-4xl font-bold">{data.page.title}</h1>
             <TinaMarkdown content={data.page.body} />
           </article>
         </main>
       </div>
     );
   } catch (error) {
-    console.error('Error loading page:', error);
+    console.error("Error loading page:", error);
     notFound();
   }
 }
@@ -63,13 +65,12 @@ export async function generateMetadata({ params }: PageProps) {
     });
 
     return {
-      title: pageResponse.data.page.title || 'Page',
-      description: pageResponse.data.page.title || '',
+      title: pageResponse.data.page.title || "Page",
+      description: pageResponse.data.page.title || "",
     };
   } catch (error) {
     return {
-      title: 'Page Not Found',
+      title: "Page Not Found",
     };
   }
 }
-

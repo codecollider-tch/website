@@ -1,41 +1,53 @@
-import Header from '@/components/sections/Header';
-import Hero from '@/components/sections/Hero';
-import Services from '@/components/sections/Services';
-import Counters from '@/components/sections/Counters';
-import TwoColumn from '@/components/sections/TwoColumn';
-import Sectors from '@/components/sections/Sectors';
-import FiftyFifty from '@/components/sections/FiftyFifty';
-import Testimonials from '@/components/sections/Testimonials';
-import LatestBlogs from '@/components/sections/LatestBlogs';
-import Partners from '@/components/sections/Partners';
-import Footer from '@/components/sections/Footer';
-import client from '@/tina/__generated__/client';
+import Counters from "@/components/sections/Counters";
+import FiftyFifty from "@/components/sections/FiftyFifty";
+import Footer from "@/components/sections/Footer";
+import Header from "@/components/sections/Header";
+import Hero from "@/components/sections/Hero";
+import LatestBlogs from "@/components/sections/LatestBlogs";
+import Partners from "@/components/sections/Partners";
+import Sectors from "@/components/sections/Sectors";
+import Services from "@/components/sections/Services";
+import Testimonials from "@/components/sections/Testimonials";
+import TwoColumn from "@/components/sections/TwoColumn";
+import client from "@/tina/__generated__/client";
 
 export default async function Home() {
   // Fetch settings data
   const settingsResponse = await client.queries.settings({
-    relativePath: 'site.json',
+    relativePath: "site.json",
   });
   const settings = settingsResponse.data.settings;
 
   // Fetch all services
   const servicesResponse = await client.queries.serviceConnection();
-  const services = (servicesResponse.data.serviceConnection.edges?.map((edge) => edge?.node).filter((node): node is NonNullable<typeof node> => node != null) || []);
+  const services =
+    servicesResponse.data.serviceConnection.edges
+      ?.map((edge) => edge?.node)
+      .filter((node): node is NonNullable<typeof node> => node != null) || [];
 
   // Fetch all testimonials
   const testimonialsResponse = await client.queries.testimonialConnection();
-  const testimonials = (testimonialsResponse.data.testimonialConnection.edges?.map((edge) => edge?.node).filter((node): node is NonNullable<typeof node> => node != null) || []);
+  const testimonials =
+    testimonialsResponse.data.testimonialConnection.edges
+      ?.map((edge) => edge?.node)
+      .filter((node): node is NonNullable<typeof node> => node != null) || [];
 
   // Fetch latest posts
   const postsResponse = await client.queries.postConnection({
-    sort: 'date',
+    sort: "date",
     last: 3,
   });
-  const posts = (postsResponse.data.postConnection.edges?.map((edge) => edge?.node).filter((node): node is NonNullable<typeof node> => node != null) || []);
+  const posts =
+    postsResponse.data.postConnection.edges
+      ?.map((edge) => edge?.node)
+      .filter((node): node is NonNullable<typeof node> => node != null) || [];
 
   // Fetch all sectors
   const sectorsResponse = await client.queries.sectorConnection();
-  const sectors = (sectorsResponse.data.sectorConnection.edges?.map((edge) => edge?.node).filter((node): node is NonNullable<typeof node> => node != null) || []);
+  const sectors =
+    sectorsResponse.data.sectorConnection.edges
+      ?.map((edge) => edge?.node)
+      .filter((node): node is NonNullable<typeof node> => node != null) || [];
 
   return (
     <>
@@ -55,4 +67,3 @@ export default async function Home() {
     </>
   );
 }
-

@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
 const partners = [
-  { id: 1, name: 'Logo Ipsum One', logo: '/images/logos/partner-1.svg' },
-  { id: 2, name: 'Logo Ipsum 2', logo: '/images/logos/partner-2.svg' },
-  { id: 3, name: 'logoipsum 3', logo: '/images/logos/partner-3.svg' },
-  { id: 4, name: 'logo Ipsum 4', logo: '/images/logos/partner-4.svg' },
+  { id: 1, name: "Logo Ipsum One", logo: "/images/logos/partner-1.svg" },
+  { id: 2, name: "Logo Ipsum 2", logo: "/images/logos/partner-2.svg" },
+  { id: 3, name: "logoipsum 3", logo: "/images/logos/partner-3.svg" },
+  { id: 4, name: "logo Ipsum 4", logo: "/images/logos/partner-4.svg" },
 ];
 
 export default function Partners() {

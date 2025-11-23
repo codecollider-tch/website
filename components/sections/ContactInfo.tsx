@@ -1,7 +1,8 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import Image from 'next/image';
+import Image from "next/image";
+
+import { motion } from "framer-motion";
 
 interface ContactData {
   address?: string | null;
@@ -18,40 +19,40 @@ interface ContactInfoProps {
 }
 
 export default function ContactInfo({ data }: ContactInfoProps) {
-  const address = data?.address || '';
-  const email = data?.email || '';
-  const phone = data?.phone || '';
-  const weekdaysHours = data?.hours?.weekdays || 'Mon-Sat: 8 AM - 06 PM';
-  const weekendHours = data?.hours?.weekend || 'Sun: day off';
+  const address = data?.address || "";
+  const email = data?.email || "";
+  const phone = data?.phone || "";
+  const weekdaysHours = data?.hours?.weekdays || "Mon-Sat: 8 AM - 06 PM";
+  const weekendHours = data?.hours?.weekend || "Sun: day off";
 
   const infoCards = [
     {
-      id: 'address',
-      icon: '/images/icons/location.svg',
-      title: 'Address',
+      id: "address",
+      icon: "/images/icons/location.svg",
+      title: "Address",
       content: address,
       isLink: false,
     },
     {
-      id: 'email',
-      icon: '/images/icons/email.svg',
-      title: 'Email',
+      id: "email",
+      icon: "/images/icons/email.svg",
+      title: "Email",
       content: email,
       isLink: true,
       href: `mailto:${email}?subject=Query`,
     },
     {
-      id: 'phone',
-      icon: '/images/icons/calling.svg',
-      title: 'Phone',
+      id: "phone",
+      icon: "/images/icons/calling.svg",
+      title: "Phone",
       content: phone,
       isLink: true,
-      href: `tel:${phone.replace(/\s/g, '')}`,
+      href: `tel:${phone.replace(/\s/g, "")}`,
     },
     {
-      id: 'hours',
-      icon: '/images/icons/clock.svg',
-      title: 'Opening hours',
+      id: "hours",
+      icon: "/images/icons/clock.svg",
+      title: "Opening hours",
       content: null,
       isLink: false,
       hours: { weekdays: weekdaysHours, weekend: weekendHours },
@@ -72,12 +73,7 @@ export default function ContactInfo({ data }: ContactInfoProps) {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="detail_card is-small"
               >
-                <img
-                  src={card.icon}
-                  loading="lazy"
-                  alt={card.title}
-                  className="icon_24"
-                />
+                <img src={card.icon} loading="lazy" alt={card.title} className="icon_24" />
                 <h4>{card.title}</h4>
                 {card.hours ? (
                   <div className="w-layout-vflex hours_wr">
@@ -99,4 +95,3 @@ export default function ContactInfo({ data }: ContactInfoProps) {
     </section>
   );
 }
-

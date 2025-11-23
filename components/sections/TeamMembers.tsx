@@ -1,7 +1,8 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import Image from 'next/image';
+import Image from "next/image";
+
+import { motion } from "framer-motion";
 
 interface TeamMember {
   id?: string;
@@ -42,8 +43,8 @@ export default function TeamMembers({ members = [] }: TeamMembersProps) {
               <div key={member.id || index} className="team_member_col">
                 <div className="team_thumbnail_wr">
                   <Image
-                    src={member.image || '/images/placeholder.jpg'}
-                    alt={member.name || 'Team Member'}
+                    src={member.image || "/images/placeholder.jpg"}
+                    alt={member.name || "Team Member"}
                     width={300}
                     height={300}
                     className="image_fit"
@@ -61,4 +62,3 @@ export default function TeamMembers({ members = [] }: TeamMembersProps) {
     </section>
   );
 }
-

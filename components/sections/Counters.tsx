@@ -1,16 +1,17 @@
-'use client';
+"use client";
 
-import { motion, useInView } from 'framer-motion';
-import { useRef, useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from "react";
+
+import { motion, useInView } from "framer-motion";
 
 const counters = [
-  { id: 1, value: '100+', label: 'Projects Completed' },
-  { id: 2, value: '95%', label: 'Client Satisfaction' },
-  { id: 3, value: '$50M+', label: 'Revenue Generated' },
-  { id: 4, value: '90%', label: 'Project Success Rate' },
+  { id: 1, value: "100+", label: "Projects Completed" },
+  { id: 2, value: "95%", label: "Client Satisfaction" },
+  { id: 3, value: "$50M+", label: "Revenue Generated" },
+  { id: 4, value: "90%", label: "Project Success Rate" },
 ];
 
-function Counter({ counter, index }: { counter: typeof counters[0]; index: number }) {
+function Counter({ counter, index }: { counter: (typeof counters)[0]; index: number }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [hasAnimated, setHasAnimated] = useState(false);

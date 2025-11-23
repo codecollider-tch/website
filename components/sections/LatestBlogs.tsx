@@ -1,9 +1,11 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import Link from 'next/link';
-import Image from 'next/image';
-import { useState } from 'react';
+import { useState } from "react";
+
+import Image from "next/image";
+import Link from "next/link";
+
+import { motion } from "framer-motion";
 
 interface Post {
   id?: string;
@@ -23,16 +25,18 @@ interface LatestBlogsProps {
 
 function BlogCard({ blog, index }: { blog: Post; index: number }) {
   const formatDate = (dateString?: string | null) => {
-    if (!dateString) return '';
+    if (!dateString) return "";
     const date = new Date(dateString);
-    return date.toLocaleDateString('en-GB', {
-      day: '2-digit',
-      month: '2-digit',
-      year: 'numeric'
-    }).replace(/\//g, '.');
+    return date
+      .toLocaleDateString("en-GB", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+      })
+      .replace(/\//g, ".");
   };
 
-  const href = blog._sys?.filename ? `/blog/${blog._sys.filename}` : '#';
+  const href = blog._sys?.filename ? `/blog/${blog._sys.filename}` : "#";
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -49,10 +53,13 @@ function BlogCard({ blog, index }: { blog: Post; index: number }) {
         onMouseLeave={() => setIsHovered(false)}
         className="posts_list-anchor w-inline-block"
       >
-        <div className="posts_list-thumb-wr" style={{ position: 'relative', width: '100%', height: '100%' }}>
+        <div
+          className="posts_list-thumb-wr"
+          style={{ position: "relative", width: "100%", height: "100%" }}
+        >
           <Image
-            src={blog.image || '/images/placeholder.jpg'}
-            alt={blog.title || 'Blog post image'}
+            src={blog.image || "/images/placeholder.jpg"}
+            alt={blog.title || "Blog post image"}
             fill
             className="image_fit object-cover"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

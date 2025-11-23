@@ -1,19 +1,19 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
 const features = [
   {
-    title: 'Strategic Growth Planning',
-    description: 'Tailored strategies to boost your business\'s financial performance.',
+    title: "Strategic Growth Planning",
+    description: "Tailored strategies to boost your business's financial performance.",
   },
   {
-    title: 'Expert Financial Insights',
-    description: 'Access to in-depth analysis and recommendations from industry specialists.',
+    title: "Expert Financial Insights",
+    description: "Access to in-depth analysis and recommendations from industry specialists.",
   },
   {
-    title: 'Optimized Investment Strategies',
-    description: 'Expert guidance on investments to maximize returns and minimize risks.',
+    title: "Optimized Investment Strategies",
+    description: "Expert guidance on investments to maximize returns and minimize risks.",
   },
 ];
 
@@ -38,9 +38,7 @@ export default function TwoColumn() {
         >
           <div className="title-small is-neon">Advice</div>
           <div className="padding-bottom padding-xsmall"></div>
-          <h2 className="text-color-white">
-            Focused Strategies for Financial Success and Growth
-          </h2>
+          <h2 className="text-color-white">Focused Strategies for Financial Success and Growth</h2>
         </motion.div>
         <div className="padding-bottom padding-medium"></div>
         <div className="w-layout-hflex custom-list">

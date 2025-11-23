@@ -1,8 +1,10 @@
-'use client';
+"use client";
 
-import { motion, AnimatePresence } from 'framer-motion';
-import { useState, useEffect, useCallback } from 'react';
-import Image from 'next/image';
+import { useCallback, useEffect, useState } from "react";
+
+import Image from "next/image";
+
+import { AnimatePresence, motion } from "framer-motion";
 
 interface Testimonial {
   id?: string;
@@ -51,7 +53,7 @@ export default function Testimonials({ testimonials = [] }: TestimonialsProps) {
 
   const slideVariants = {
     enter: (direction: number) => ({
-      x: direction > 0 ? '100%' : '-100%',
+      x: direction > 0 ? "100%" : "-100%",
       opacity: 1,
     }),
     center: {
@@ -59,7 +61,7 @@ export default function Testimonials({ testimonials = [] }: TestimonialsProps) {
       opacity: 1,
     },
     exit: (direction: number) => ({
-      x: direction < 0 ? '100%' : '-100%',
+      x: direction < 0 ? "100%" : "-100%",
       opacity: 1,
     }),
   };
@@ -70,7 +72,10 @@ export default function Testimonials({ testimonials = [] }: TestimonialsProps) {
         <div className="padding-global">
           <div className="container-large is-larger">
             <div className="testimonial-slider w-slider">
-              <div className="testimonial_slider_mask w-slider-mask" style={{ position: 'relative', overflow: 'hidden', minHeight: '400px' }}>
+              <div
+                className="testimonial_slider_mask w-slider-mask"
+                style={{ position: "relative", overflow: "hidden", minHeight: "400px" }}
+              >
                 <AnimatePresence initial={false} custom={direction}>
                   <motion.div
                     key={currentIndex}
@@ -83,17 +88,17 @@ export default function Testimonials({ testimonials = [] }: TestimonialsProps) {
                       x: { type: "tween", duration: 0.5, ease: "easeInOut" },
                     }}
                     className="testimonial_slide w-slide"
-                    style={{ position: 'absolute', width: '100%', left: 0, top: 0 }}
+                    style={{ position: "absolute", width: "100%", left: 0, top: 0 }}
                   >
                     <div className="testimonial_slide-inner">
                       <div className="testimonial_thumbnail_wr">
                         <Image
-                          src={testimonials[currentIndex].image || ''}
-                          alt={testimonials[currentIndex].name || ''}
+                          src={testimonials[currentIndex].image || ""}
+                          alt={testimonials[currentIndex].name || ""}
                           className="image_fit"
                           width={500}
                           height={500}
-                          style={{ objectFit: 'cover' }}
+                          style={{ objectFit: "cover" }}
                         />
                       </div>
                       <div className="testimonial_content_wr">
@@ -102,11 +107,10 @@ export default function Testimonials({ testimonials = [] }: TestimonialsProps) {
                           {testimonials[currentIndex].content}
                         </p>
                         <div className="testimonial_author-content">
-                          <div className="heading-style-h5">
-                            {testimonials[currentIndex].name}
-                          </div>
+                          <div className="heading-style-h5">{testimonials[currentIndex].name}</div>
                           <div className="paragraph-small text-lighter">
-                            {testimonials[currentIndex].position} / {testimonials[currentIndex].company}
+                            {testimonials[currentIndex].position} /{" "}
+                            {testimonials[currentIndex].company}
                           </div>
                         </div>
                       </div>
@@ -128,8 +132,8 @@ export default function Testimonials({ testimonials = [] }: TestimonialsProps) {
                   <div
                     key={index}
                     onClick={() => goToTestimonial(index)}
-                    className={`w-slider-dot ${index === currentIndex ? 'w-active' : ''}`}
-                    style={{ marginLeft: '10px', marginRight: '10px', cursor: 'pointer' }}
+                    className={`w-slider-dot ${index === currentIndex ? "w-active" : ""}`}
+                    style={{ marginLeft: "10px", marginRight: "10px", cursor: "pointer" }}
                   />
                 ))}
               </div>
@@ -138,14 +142,14 @@ export default function Testimonials({ testimonials = [] }: TestimonialsProps) {
               <div
                 className="hide w-slider-arrow-left"
                 onClick={prevTestimonial}
-                style={{ cursor: 'pointer' }}
+                style={{ cursor: "pointer" }}
               >
                 <div className="w-icon-slider-left"></div>
               </div>
               <div
                 className="hide w-slider-arrow-right"
                 onClick={nextTestimonial}
-                style={{ cursor: 'pointer' }}
+                style={{ cursor: "pointer" }}
               >
                 <div className="w-icon-slider-right"></div>
               </div>

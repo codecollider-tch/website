@@ -1,8 +1,9 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import Link from 'next/link';
-import Image from 'next/image';
+import Image from "next/image";
+import Link from "next/link";
+
+import { motion } from "framer-motion";
 
 interface ContactHeroProps {
   badge?: string;
@@ -14,12 +15,12 @@ interface ContactHeroProps {
 }
 
 export default function ContactHero({
-  badge = 'Contact',
-  title = 'Always searching for improved solutions.',
-  description = 'Reach out for inquiries, support, or to schedule a consultation. We\'re here to assist you.',
-  buttonText = 'Know More',
-  buttonLink = '/about-us',
-  image = '/images/photos/contact-hero.avif',
+  badge = "Contact",
+  title = "Always searching for improved solutions.",
+  description = "Reach out for inquiries, support, or to schedule a consultation. We're here to assist you.",
+  buttonText = "Know More",
+  buttonLink = "/about-us",
+  image = "/images/photos/contact-hero.avif",
 }: ContactHeroProps) {
   return (
     <section className="section_hero">
@@ -37,19 +38,12 @@ export default function ContactHero({
               <div>
                 <div className="title-small is-neon">{badge}</div>
                 <div className="padding-bottom padding-xsmall"></div>
-                <h1 className="text-color-white heading-style-h2">
-                  {title}
-                </h1>
+                <h1 className="text-color-white heading-style-h2">{title}</h1>
                 <div className="padding-bottom padding-xsmall"></div>
-                <p className="body_one">
-                  {description}
-                </p>
+                <p className="body_one">{description}</p>
               </div>
               <div>
-                <Link
-                  href={buttonLink}
-                  className="button is-medium w-button"
-                >
+                <Link href={buttonLink} className="button is-medium w-button">
                   {buttonText}
                 </Link>
               </div>
@@ -61,14 +55,14 @@ export default function ContactHero({
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, delay: 0.4 }}
               className="hero_image object-position-left"
-              style={{ position: 'relative', width: '100%', height: '100%', minHeight: '400px' }}
+              style={{ position: "relative", width: "100%", height: "100%", minHeight: "400px" }}
             >
               <Image
                 src={image}
                 alt="Business people discussion"
                 fill
                 sizes="(max-width: 991px) 100vw, (max-width: 1279px) 50vw, 492px"
-                className="object-cover object-position-left"
+                className="object-position-left object-cover"
                 priority
               />
             </motion.div>
@@ -78,4 +72,3 @@ export default function ContactHero({
     </section>
   );
 }
-

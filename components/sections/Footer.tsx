@@ -1,15 +1,17 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import Link from 'next/link';
-import { useState } from 'react';
+import { useState } from "react";
+
+import Link from "next/link";
+
+import { motion } from "framer-motion";
 
 const footerLinks = [
-  { name: 'Home', href: '/' },
-  { name: 'About', href: '/about' },
-  { name: 'Services', href: '/services' },
-  { name: 'Blogs', href: '/blog' },
-  { name: 'Contact', href: '/contact' },
+  { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
+  { name: "Services", href: "/services" },
+  { name: "Blogs", href: "/blog" },
+  { name: "Contact", href: "/contact" },
 ];
 
 interface FooterProps {
@@ -28,11 +30,23 @@ interface FooterProps {
 
 export default function Footer({ contact, social }: FooterProps) {
   const socialLinks = [
-    { name: 'Facebook', href: social?.facebook || 'https://www.facebook.com/', icon: '/images/icons/facebook.svg' },
-    { name: 'X', href: social?.twitter || 'https://www.x.com/', icon: '/images/icons/x-twitter.svg' },
-    { name: 'Instagram', href: social?.instagram || 'https://www.instagram.com/', icon: '/images/icons/instagram.svg' },
-  ].filter(link => link.href);
-  const [email, setEmail] = useState('');
+    {
+      name: "Facebook",
+      href: social?.facebook || "https://www.facebook.com/",
+      icon: "/images/icons/facebook.svg",
+    },
+    {
+      name: "X",
+      href: social?.twitter || "https://www.x.com/",
+      icon: "/images/icons/x-twitter.svg",
+    },
+    {
+      name: "Instagram",
+      href: social?.instagram || "https://www.instagram.com/",
+      icon: "/images/icons/instagram.svg",
+    },
+  ].filter((link) => link.href);
+  const [email, setEmail] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -40,7 +54,7 @@ export default function Footer({ contact, social }: FooterProps) {
     setIsSubmitted(true);
     setTimeout(() => {
       setIsSubmitted(false);
-      setEmail('');
+      setEmail("");
     }, 3000);
   };
 
@@ -53,11 +67,7 @@ export default function Footer({ contact, social }: FooterProps) {
             {/* Column 1 */}
             <div className="footer_col is-one">
               <Link href="/" className="footer-brand w-inline-block">
-                <img
-                  src="/images/logo.svg"
-                  loading="lazy"
-                  alt="Code Collider"
-                />
+                <img src="/images/logo.svg" loading="lazy" alt="Code Collider" />
               </Link>
               <p className="body_one">
                 Expert guidance tailored to your business needs, driving growth and innovation.
@@ -137,22 +147,29 @@ export default function Footer({ contact, social }: FooterProps) {
                   <h5 className="text-color-alternate">Address</h5>
                   <div className="padding-top padding-xxsmall"></div>
                   <div className="body_one text-light">
-                    {contact?.address || '1234 Innovation Drive Suite 567 Cityville, State 89012 Country'}
+                    {contact?.address ||
+                      "1234 Innovation Drive Suite 567 Cityville, State 89012 Country"}
                   </div>
                 </div>
                 <div className="quick-contact">
                   <div className="qc_link_wr">
                     <h5 className="text-color-alternate">Email</h5>
                     <div className="padding-top padding-xxsmall"></div>
-                    <a href={`mailto:${contact?.email || 'info@code-collider.tech'}`} className="link-light-grey">
-                      {contact?.email || 'info@code-collider.tech'}
+                    <a
+                      href={`mailto:${contact?.email || "info@code-collider.tech"}`}
+                      className="link-light-grey"
+                    >
+                      {contact?.email || "info@code-collider.tech"}
                     </a>
                   </div>
                   <div className="qc_link_wr">
                     <h5 className="text-color-alternate">Phone</h5>
                     <div className="padding-top padding-xxsmall"></div>
-                    <a href={`tel:${contact?.phone?.replace(/\s/g, '') || '18005551234'}`} className="link-light-grey">
-                      {contact?.phone || '+1 (800) 555-1234'}
+                    <a
+                      href={`tel:${contact?.phone?.replace(/\s/g, "") || "18005551234"}`}
+                      className="link-light-grey"
+                    >
+                      {contact?.phone || "+1 (800) 555-1234"}
                     </a>
                   </div>
                 </div>
@@ -168,7 +185,7 @@ export default function Footer({ contact, social }: FooterProps) {
         <div className="container-large">
           <div className="w-layout-hflex copyrights">
             <div className="body_one ligher">
-              Developed by{' '}
+              Developed by{" "}
               <a
                 href="http://www.zealousweb.com/"
                 target="_blank"
@@ -179,7 +196,7 @@ export default function Footer({ contact, social }: FooterProps) {
               </a>
             </div>
             <div className="body_one ligher">
-              Powered by{' '}
+              Powered by{" "}
               <a
                 href="http://webflow.com/"
                 target="_blank"

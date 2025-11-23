@@ -1,16 +1,17 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { useState, FormEvent } from 'react';
+import { FormEvent, useState } from "react";
+
+import { motion } from "framer-motion";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    phone: '',
-    email: '',
-    subject: '',
-    message: '',
+    firstName: "",
+    lastName: "",
+    phone: "",
+    email: "",
+    subject: "",
+    message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -23,10 +24,10 @@ export default function ContactForm() {
     setIsSuccess(false);
 
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
+      const response = await fetch("/api/contact", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
@@ -34,18 +35,18 @@ export default function ContactForm() {
       if (response.ok) {
         setIsSuccess(true);
         setFormData({
-          firstName: '',
-          lastName: '',
-          phone: '',
-          email: '',
-          subject: '',
-          message: '',
+          firstName: "",
+          lastName: "",
+          phone: "",
+          email: "",
+          subject: "",
+          message: "",
         });
       } else {
         setIsError(true);
       }
     } catch (error) {
-      console.error('Form submission error:', error);
+      console.error("Form submission error:", error);
       setIsError(true);
     } finally {
       setIsSubmitting(false);
@@ -57,9 +58,7 @@ export default function ContactForm() {
     setIsError(false);
   };
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
@@ -103,10 +102,7 @@ export default function ContactForm() {
                   <div className="padding-bottom padding-custom1"></div>
 
                   <div className="form_wr padding-bottom w-form">
-                    <form
-                      onSubmit={handleSubmit}
-                      className="form_inner-container"
-                    >
+                    <form onSubmit={handleSubmit} className="form_inner-container">
                       {/* First Row: First Name & Last Name */}
                       <div className="form-row">
                         <div className="form-group">
@@ -217,7 +213,7 @@ export default function ContactForm() {
                           type="submit"
                           disabled={isSubmitting}
                           className="button is-submit w-button"
-                          value={isSubmitting ? 'Please wait...' : 'Send message'}
+                          value={isSubmitting ? "Please wait..." : "Send message"}
                         />
                       </div>
                     </form>
@@ -225,12 +221,15 @@ export default function ContactForm() {
                 </>
               ) : isSuccess ? (
                 /* Success Message */
-                <div className="w-layout-vflex" style={{ alignItems: 'center', textAlign: 'center', padding: '4rem 2rem' }}>
+                <div
+                  className="w-layout-vflex"
+                  style={{ alignItems: "center", textAlign: "center", padding: "4rem 2rem" }}
+                >
                   <motion.div
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
-                    transition={{ type: 'spring', duration: 0.5 }}
-                    style={{ marginBottom: '2rem' }}
+                    transition={{ type: "spring", duration: 0.5 }}
+                    style={{ marginBottom: "2rem" }}
                   >
                     <svg
                       width="80"
@@ -254,7 +253,7 @@ export default function ContactForm() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 }}
-                    style={{ marginBottom: '1rem' }}
+                    style={{ marginBottom: "1rem" }}
                   >
                     Thank you!
                   </motion.h2>
@@ -264,9 +263,10 @@ export default function ContactForm() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3 }}
                     className="text-size-medium"
-                    style={{ marginBottom: '2rem', maxWidth: '500px' }}
+                    style={{ marginBottom: "2rem", maxWidth: "500px" }}
                   >
-                    Your message has been successfully sent. We&apos;ll get back to you as soon as possible.
+                    Your message has been successfully sent. We&apos;ll get back to you as soon as
+                    possible.
                   </motion.p>
 
                   <motion.button
@@ -282,12 +282,15 @@ export default function ContactForm() {
                 </div>
               ) : (
                 /* Error Message */
-                <div className="w-layout-vflex" style={{ alignItems: 'center', textAlign: 'center', padding: '4rem 2rem' }}>
+                <div
+                  className="w-layout-vflex"
+                  style={{ alignItems: "center", textAlign: "center", padding: "4rem 2rem" }}
+                >
                   <motion.div
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
-                    transition={{ type: 'spring', duration: 0.5 }}
-                    style={{ marginBottom: '2rem' }}
+                    transition={{ type: "spring", duration: 0.5 }}
+                    style={{ marginBottom: "2rem" }}
                   >
                     <svg
                       width="80"
@@ -311,7 +314,7 @@ export default function ContactForm() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 }}
-                    style={{ marginBottom: '1rem' }}
+                    style={{ marginBottom: "1rem" }}
                   >
                     Oops! Something went wrong
                   </motion.h2>
@@ -321,9 +324,10 @@ export default function ContactForm() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3 }}
                     className="text-size-medium"
-                    style={{ marginBottom: '2rem', maxWidth: '500px' }}
+                    style={{ marginBottom: "2rem", maxWidth: "500px" }}
                   >
-                    We couldn&apos;t send your message. Please try again or contact us directly via email.
+                    We couldn&apos;t send your message. Please try again or contact us directly via
+                    email.
                   </motion.p>
 
                   <motion.button
@@ -345,4 +349,3 @@ export default function ContactForm() {
     </section>
   );
 }
-

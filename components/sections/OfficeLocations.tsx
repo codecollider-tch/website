@@ -1,7 +1,8 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import Image from 'next/image';
+import Image from "next/image";
+
+import { motion } from "framer-motion";
 
 interface Office {
   id?: string;
@@ -18,28 +19,28 @@ interface OfficeLocationsProps {
 
 const defaultOffices: Office[] = [
   {
-    id: '1',
-    country: 'United States',
-    address: '456 Innovation Park, Suite 101San Francisco, CA 94107',
-    email: 'contact@code-collider.tech',
-    phone: '+1 (415) 555-6789',
-    image: '/images/photos/office-us.avif',
+    id: "1",
+    country: "United States",
+    address: "456 Innovation Park, Suite 101San Francisco, CA 94107",
+    email: "contact@code-collider.tech",
+    phone: "+1 (415) 555-6789",
+    image: "/images/photos/office-us.avif",
   },
   {
-    id: '2',
-    country: 'United Kingdom',
-    address: '78 Business Road, Floor 2London, SW1A 1AA',
-    email: 'contact@code-collider.tech',
-    phone: '+44 (20) 7946-1234',
-    image: '/images/photos/office-uk.avif',
+    id: "2",
+    country: "United Kingdom",
+    address: "78 Business Road, Floor 2London, SW1A 1AA",
+    email: "contact@code-collider.tech",
+    phone: "+44 (20) 7946-1234",
+    image: "/images/photos/office-uk.avif",
   },
   {
-    id: '3',
-    country: 'Australia',
-    address: '123 Enterprise Drive, Level 3Sydney, NSW 2000',
-    email: 'contact@code-collider.tech',
-    phone: '+61 (2) 9876-5432',
-    image: '/images/photos/office-au.avif',
+    id: "3",
+    country: "Australia",
+    address: "123 Enterprise Drive, Level 3Sydney, NSW 2000",
+    email: "contact@code-collider.tech",
+    phone: "+61 (2) 9876-5432",
+    image: "/images/photos/office-au.avif",
   },
 ];
 
@@ -62,7 +63,8 @@ export default function OfficeLocations({ offices = defaultOffices }: OfficeLoca
               <h2>Our Working Location</h2>
               <div className="title_block-right">
                 <p className="body_one-dark">
-                  Discover where we operate and how we can serve you. Our locations offer personalized support.
+                  Discover where we operate and how we can serve you. Our locations offer
+                  personalized support.
                 </p>
                 <div className="padding-bottom padding-regular"></div>
               </div>
@@ -83,9 +85,12 @@ export default function OfficeLocations({ offices = defaultOffices }: OfficeLoca
               <div key={office.id || index} className="posts_list office_list">
                 <div className="posts_lists-item">
                   <div className="posts_list-anchor">
-                    <div className="posts_list-thumb-wr is-location-thumbnail" style={{ position: 'relative', width: '100%', height: '100%' }}>
+                    <div
+                      className="posts_list-thumb-wr is-location-thumbnail"
+                      style={{ position: "relative", width: "100%", height: "100%" }}
+                    >
                       <Image
-                        src={office.image || '/images/placeholder.jpg'}
+                        src={office.image || "/images/placeholder.jpg"}
                         alt={`${office.country} office`}
                         fill
                         className="image_fit object-cover"
@@ -94,9 +99,7 @@ export default function OfficeLocations({ offices = defaultOffices }: OfficeLoca
                     </div>
                     <div className="posts_list-content-wr is-office">
                       <div className="heading-style-h4">{office.country}</div>
-                      <p className="text-lighter max-width-custom300">
-                        {office.address}
-                      </p>
+                      <p className="text-lighter max-width-custom300">{office.address}</p>
                       <a
                         href={`mailto:${office.email}?subject=Query`}
                         className="quick-text-link is-office-link"
@@ -104,7 +107,7 @@ export default function OfficeLocations({ offices = defaultOffices }: OfficeLoca
                         {office.email}
                       </a>
                       <a
-                        href={`tel:${office.phone?.replace(/\s/g, '')}`}
+                        href={`tel:${office.phone?.replace(/\s/g, "")}`}
                         className="quick-text-link"
                       >
                         {office.phone}
@@ -120,4 +123,3 @@ export default function OfficeLocations({ offices = defaultOffices }: OfficeLoca
     </section>
   );
 }
-

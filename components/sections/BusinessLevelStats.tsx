@@ -1,7 +1,8 @@
-'use client';
+"use client";
 
-import { motion, useInView } from 'framer-motion';
-import { useRef, useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from "react";
+
+import { motion, useInView } from "framer-motion";
 
 interface Stat {
   title?: string | null;
@@ -48,7 +49,7 @@ export default function BusinessLevelStats({ stats = [] }: BusinessLevelStatsPro
                   {stats.map((stat, index) => (
                     <ProgressBar
                       key={index}
-                      title={stat.title || ''}
+                      title={stat.title || ""}
                       percentage={stat.percentage || 0}
                       delay={index * 0.2}
                     />
@@ -63,7 +64,15 @@ export default function BusinessLevelStats({ stats = [] }: BusinessLevelStatsPro
   );
 }
 
-function ProgressBar({ title, percentage, delay }: { title: string; percentage: number; delay: number }) {
+function ProgressBar({
+  title,
+  percentage,
+  delay,
+}: {
+  title: string;
+  percentage: number;
+  delay: number;
+}) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   const [width, setWidth] = useState(0);
@@ -92,7 +101,7 @@ function ProgressBar({ title, percentage, delay }: { title: string; percentage: 
           className="progress_bar_fill"
           style={{
             width: `${width}%`,
-            transition: 'width 1s ease-out',
+            transition: "width 1s ease-out",
           }}
         />
         <div className="progress_number">{percentage}%</div>
@@ -100,4 +109,3 @@ function ProgressBar({ title, percentage, delay }: { title: string; percentage: 
     </motion.div>
   );
 }
-

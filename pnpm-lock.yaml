@@ -8,6 +8,12 @@ importers:
 
   .:
     dependencies:
+      '@eslint/eslintrc':
+        specifier: ^3.2.0
+        version: 3.3.1
+      '@eslint/js':
+        specifier: ^9.18.0
+        version: 9.39.1
       '@tailwindcss/postcss':
         specifier: ^4.0.0
         version: 4.1.17
@@ -23,6 +29,18 @@ importers:
       '@types/react-dom':
         specifier: ^19.0.2
         version: 19.2.2(@types/react@19.2.2)
+      eslint:
+        specifier: ^9.18.0
+        version: 9.39.1(jiti@1.21.7)
+      eslint-config-next:
+        specifier: ^15.1.9
+        version: 15.5.6(eslint@9.39.1(jiti@1.21.7))(typescript@5.9.3)
+      eslint-import-resolver-typescript:
+        specifier: ^3.7.0
+        version: 3.10.1(eslint-plugin-import@2.32.0)(eslint@9.39.1(jiti@1.21.7))
+      eslint-plugin-import:
+        specifier: ^2.32.0
+        version: 2.32.0(@typescript-eslint/parser@8.46.3(eslint@9.39.1(jiti@1.21.7))(typescript@5.9.3))(eslint-import-resolver-typescript@3.10.1)(eslint@9.39.1(jiti@1.21.7))
       framer-motion:
         specifier: ^11.15.0
         version: 11.18.2(@emotion/is-prop-valid@0.8.8)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
@@ -51,27 +69,9 @@ importers:
         specifier: ^5.7.2
         version: 5.9.3
     devDependencies:
-      '@eslint/eslintrc':
-        specifier: ^3.2.0
-        version: 3.3.1
-      '@eslint/js':
-        specifier: ^9.18.0
-        version: 9.39.1
       '@trivago/prettier-plugin-sort-imports':
         specifier: ^4.3.0
         version: 4.3.0(prettier@3.6.2)
-      eslint:
-        specifier: ^9.18.0
-        version: 9.39.1(jiti@1.21.7)
-      eslint-config-next:
-        specifier: ^15.1.9
-        version: 15.5.6(eslint@9.39.1(jiti@1.21.7))(typescript@5.9.3)
-      eslint-import-resolver-typescript:
-        specifier: ^3.7.0
-        version: 3.10.1(eslint-plugin-import@2.32.0)(eslint@9.39.1(jiti@1.21.7))
-      eslint-plugin-import:
-        specifier: ^2.32.0
-        version: 2.32.0(@typescript-eslint/parser@8.46.3(eslint@9.39.1(jiti@1.21.7))(typescript@5.9.3))(eslint-import-resolver-typescript@3.10.1)(eslint@9.39.1(jiti@1.21.7))
       lint-staged:
         specifier: ^16.2.7
         version: 16.2.7

@@ -14,7 +14,7 @@ Modern website for Code Collider, built with Next.js 15, TailwindCSS v4, and Fra
 
 ## 📋 Prerequisites
 
-- Node.js >= 22.0.0
+- Node.js >= 24.0.0
 - pnpm >= 10.0.0
 
 ## 🛠️ Installation & Setup

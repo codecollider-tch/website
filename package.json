@@ -4,7 +4,7 @@
   "private": true,
   "packageManager": "pnpm@9.0.0",
   "engines": {
-    "node": ">=22.0.0"
+    "node": ">=24.0.0"
   },
   "scripts": {
     "dev": "tinacms dev -c \"NODE_OPTIONS='--inspect' next dev --turbopack\"",
@@ -16,31 +16,31 @@
     "prepare": "husky || echo 'Husky not installed, skipping'"
   },
   "dependencies": {
+    "@tailwindcss/postcss": "^4.0.0",
     "@tinacms/cli": "^1.12.0",
     "framer-motion": "^11.15.0",
-    "next": "^15.1.6",
+    "next": "15.1.9",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "resend": "^6.4.2",
+    "tailwindcss": "^4.0.0",
     "tinacms": "^2.9.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.2.0",
     "@eslint/js": "^9.18.0",
-    "@tailwindcss/postcss": "^4.0.0",
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "@types/node": "^22.10.6",
     "@types/react": "^19.0.6",
     "@types/react-dom": "^19.0.2",
     "eslint": "^9.18.0",
-    "eslint-config-next": "^15.1.6",
+    "eslint-config-next": "^15.1.9",
     "eslint-import-resolver-typescript": "^3.7.0",
     "eslint-plugin-import": "^2.32.0",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.7",
     "prettier": "^3.6.2",
     "prettier-plugin-tailwindcss": "^0.6.9",
-    "tailwindcss": "^4.0.0",
     "typescript": "^5.7.2"
   },
   "lint-staged": {

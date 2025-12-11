@@ -1,6 +1,16 @@
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 #
+# CRITICAL RULES:
+#
+# ❌ NEVER RUN `git commit` - FORBIDDEN!
+# ❌ NEVER RUN `git push` - FORBIDDEN!
+# ❌ NEVER RUN `git add` - FORBIDDEN!
+#
+# The user will handle all git operations manually!
+#
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#
 # IMPORTANT! BEFORE ANY TERMINAL COMMAND PERFORM THIS:
 #
 # ```bash

@@ -505,6 +505,173 @@ export default defineConfig({
               },
             ],
           },
+          {
+            type: "object",
+            name: "servicesPage",
+            label: "Services Page",
+            fields: [
+              {
+                type: "object",
+                name: "hero",
+                label: "Hero Section",
+                fields: [
+                  {
+                    type: "string",
+                    name: "badge",
+                    label: "Badge Text",
+                  },
+                  {
+                    type: "string",
+                    name: "title",
+                    label: "Title",
+                  },
+                  {
+                    type: "string",
+                    name: "description",
+                    label: "Description",
+                    ui: {
+                      component: "textarea",
+                    },
+                  },
+                  {
+                    type: "string",
+                    name: "buttonText",
+                    label: "Button Text",
+                  },
+                  {
+                    type: "string",
+                    name: "buttonLink",
+                    label: "Button Link",
+                  },
+                  {
+                    type: "image",
+                    name: "image",
+                    label: "Hero Image",
+                  },
+                ],
+              },
+              {
+                type: "string",
+                name: "ctaTitle",
+                label: "CTA Section Title",
+              },
+              {
+                type: "string",
+                name: "ctaButtonText",
+                label: "CTA Button Text",
+              },
+              {
+                type: "string",
+                name: "ctaButtonLink",
+                label: "CTA Button Link",
+              },
+              {
+                type: "object",
+                name: "cuttingEdge",
+                label: "Cutting-Edge Solutions Section",
+                fields: [
+                  {
+                    type: "string",
+                    name: "badge",
+                    label: "Badge Text",
+                  },
+                  {
+                    type: "string",
+                    name: "title",
+                    label: "Title",
+                  },
+                  {
+                    type: "string",
+                    name: "description",
+                    label: "Description",
+                    ui: {
+                      component: "textarea",
+                    },
+                  },
+                  {
+                    type: "string",
+                    name: "buttonText",
+                    label: "Button Text",
+                  },
+                  {
+                    type: "string",
+                    name: "buttonLink",
+                    label: "Button Link",
+                  },
+                  {
+                    type: "image",
+                    name: "image",
+                    label: "Section Image",
+                  },
+                ],
+              },
+              {
+                type: "object",
+                name: "video",
+                label: "Video Section",
+                fields: [
+                  {
+                    type: "string",
+                    name: "badge",
+                    label: "Badge Text",
+                  },
+                  {
+                    type: "string",
+                    name: "title",
+                    label: "Title",
+                  },
+                  {
+                    type: "string",
+                    name: "description",
+                    label: "Description",
+                    ui: {
+                      component: "textarea",
+                    },
+                  },
+                  {
+                    type: "string",
+                    name: "videoUrl",
+                    label: "Video URL",
+                  },
+                  {
+                    type: "image",
+                    name: "videoPoster",
+                    label: "Video Poster Image",
+                  },
+                ],
+              },
+              {
+                type: "object",
+                name: "finalCta",
+                label: "Final CTA Section",
+                fields: [
+                  {
+                    type: "string",
+                    name: "title",
+                    label: "Title",
+                  },
+                  {
+                    type: "string",
+                    name: "description",
+                    label: "Description",
+                    ui: {
+                      component: "textarea",
+                    },
+                  },
+                  {
+                    type: "string",
+                    name: "buttonText",
+                    label: "Button Text",
+                  },
+                  {
+                    type: "string",
+                    name: "buttonLink",
+                    label: "Button Link",
+                  },
+                ],
+              },
+            ],
+          },
         ],
       },
       {

@@ -81,5 +81,39 @@
       "buttonLink": "/contact",
       "image": "/images/photos/cutting-edge.avif"
     }
+  },
+  "servicesPage": {
+    "hero": {
+      "badge": "Services",
+      "title": "Find out how our services can elevate your business potential",
+      "description": "Unlock new opportunities and achieve greater success with our expert services.",
+      "buttonText": "Know More",
+      "buttonLink": "/about-us",
+      "image": "/images/photos/hero-team.avif"
+    },
+    "ctaTitle": "Want to know more? Contact with our business consultant",
+    "ctaButtonText": "Get in touch",
+    "ctaButtonLink": "/contact",
+    "cuttingEdge": {
+      "badge": "Solution",
+      "title": "Cutting-Edge Solutions for Modern Enterprises",
+      "description": "Delivering innovative strategies and advanced solutions to drive success in today's evolving business landscape. Empowering modern enterprises with the tools to stay ahead of the curve.",
+      "buttonText": "Get in touch",
+      "buttonLink": "/contact",
+      "image": "/images/photos/cutting-edge.avif"
+    },
+    "video": {
+      "badge": "Collaborative Approach",
+      "title": "Harnessing Team Synergy for Outstanding Outcomes",
+      "description": "At Code Collider, teamwork is at the heart of everything we do. By combining our diverse skills and perspectives, we foster a collaborative environment where innovative solutions thrive. Our team works seamlessly together to ensure every project benefits from a holistic approach, leading to superior outcomes and client satisfaction. Discover how our united efforts drive success and make your vision a reality.",
+      "videoUrl": "",
+      "videoPoster": "/images/photos/team-discussion.avif"
+    },
+    "finalCta": {
+      "title": "Looking for fresh and innovative ideas?",
+      "description": "Get ahead with creative solutions from Code Collider. We turn bold ideas into actionable strategies tailored to your goals.",
+      "buttonText": "Get in touch",
+      "buttonLink": "/contact"
+    }
   }
 }

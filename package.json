@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "NODE_OPTIONS='--require ./scripts/tina-dom-polyfill.cjs' tinacms dev -c \"next dev\"",
-    "build": "NODE_OPTIONS='--require ./scripts/tina-dom-polyfill.cjs' tinacms build --skip-cloud-checks && next build",
+    "build": "NODE_OPTIONS='--max-old-space-size=4096 --require ./scripts/tina-dom-polyfill.cjs' tinacms build --skip-cloud-checks && next build",
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",

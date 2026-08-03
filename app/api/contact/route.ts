@@ -4,7 +4,7 @@ import { Resend } from "resend";
 
 const { RESEND_TO_EMAIL, RESEND_FROM_EMAIL, RESEND_API_KEY } = process.env;
 
-const resend = new Resend(RESEND_API_KEY);
+const resend = new Resend(RESEND_API_KEY || "re_dummy_key_for_build");
 
 export async function POST(request: NextRequest) {
   try {

@@ -1,12 +1,13 @@
-import { notFound } from "next/navigation";
-
 import Image from "next/image";
+import { notFound } from "next/navigation";
 
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 
 import Footer from "@/components/sections/Footer";
 import Header from "@/components/sections/Header";
 import client from "@/tina/__generated__/client";
+
+import BlogPostClient from "./client-page";
 
 interface BlogPostProps {
   params: Promise<{
@@ -62,63 +63,12 @@ export default async function BlogPost({ params }: BlogPostProps) {
     };
 
     return (
-      <>
-        <Header />
-        <main className="page-wrapper">
-          <section className="section_blog_post">
-            <div className="u-nav-spacer"></div>
-            <div className="padding-global">
-              <div className="container-large">
-                <article className="blog_post_wrapper">
-                  {/* Header */}
-                  <header className="blog_post_header">
-                    <div className="title-small is-neon">Blog</div>
-                    <div className="padding-bottom padding-xsmall"></div>
-                    <h1 className="heading-style-h1">{post.title}</h1>
-                    <div className="padding-bottom padding-small"></div>
-                    <div className="blog_post_meta">
-                      <div className="paragraph-small text-lighter">
-                        {formatDate(post.date)}
-                      </div>
-                      {post.author && (
-                        <>
-                          <span className="text-lighter"> • </span>
-                          <div className="paragraph-small text-lighter">By {post.author}</div>
-                        </>
-                      )}
-                    </div>
-                  </header>
-
-                  <div className="padding-bottom padding-medium"></div>
-
-                  {/* Featured Image */}
-                  {post.image && (
-                    <>
-                      <div className="blog_post_image_wrapper">
-                        <Image
-                          src={post.image}
-                          alt={post.title || "Blog post image"}
-                          width={1200}
-                          height={600}
-                          className="blog_post_image"
-                          priority
-                        />
-                      </div>
-                      <div className="padding-bottom padding-large"></div>
-                    </>
-                  )}
-
-                  {/* Content */}
-                  <div className="blog_post_content w-richtext">
-                    <TinaMarkdown content={post.body} />
-                  </div>
-                </article>
-              </div>
-            </div>
-          </section>
-        </main>
-        <Footer contact={settings.contact!} social={settings.social!} />
-      </>
+      <BlogPostClient
+        query={postResponse.query}
+        variables={postResponse.variables}
+        data={postResponse.data}
+        settings={settings}
+      />
     );
   } catch (error) {
     console.error("Error loading blog post:", error);

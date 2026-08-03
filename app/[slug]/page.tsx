@@ -4,6 +4,8 @@ import { TinaMarkdown } from "tinacms/dist/rich-text";
 
 import client from "@/lib/tina-client";
 
+import PageClient from "./client-page";
+
 interface PageProps {
   params: Promise<{
     slug: string;
@@ -41,14 +43,11 @@ export default async function Page({ params }: PageProps) {
     }
 
     return (
-      <div className="min-h-screen bg-white">
-        <main className="mx-auto max-w-4xl px-4 py-16">
-          <article className="prose prose-lg max-w-none">
-            <h1 className="mb-8 text-4xl font-bold">{data.page.title}</h1>
-            <TinaMarkdown content={data.page.body} />
-          </article>
-        </main>
-      </div>
+      <PageClient
+        query={pageResponse.query}
+        variables={pageResponse.variables}
+        data={pageResponse.data}
+      />
     );
   } catch (error) {
     console.error("Error loading page:", error);

@@ -43,12 +43,16 @@ export async function POST(request: NextRequest) {
     const toEmails = RESEND_TO_EMAIL.split(",").map((email) => email.trim());
 
     // Send email using Resend
-    // IMPORTANT: 'from' must be a verified domain in Resend, not the user's email
+    // 'from' is noreply (Bounce Bot / System), 'to' is hello (Codecollider Team)
+    const fromAddress = RESEND_FROM_EMAIL.includes("<")
+      ? RESEND_FROM_EMAIL
+      : `Codecollider System <${RESEND_FROM_EMAIL}>`;
+
     const emailPayload = {
-      from: RESEND_FROM_EMAIL,
+      from: fromAddress,
       to: toEmails, // Array of email addresses
       replyTo: email, // User's email for reply
-      subject: `[Contact Form] ${subject}`,
+      subject: `[Codecollider] ${subject}`,
       html: `
         <h2>New Contact Form Submission</h2>
         <p><strong>Name:</strong> ${firstName} ${lastName}</p>

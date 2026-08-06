@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 import { motion } from "framer-motion";
 
 const features = [
@@ -21,11 +23,11 @@ export default function TwoColumn() {
   return (
     <section className="two_column_comp">
       <div className="two_column-thumb_wr">
-        <img
+        <Image
           src="/images/photos/team-discussion.avif"
-          loading="lazy"
-          sizes="(max-width: 767px) 100vw, 50vw"
           alt="Showing Painting to the client"
+          width={800}
+          height={600}
           className="aspect-ratio-large"
         />
       </div>
@@ -51,10 +53,11 @@ export default function TwoColumn() {
               transition={{ duration: 0.6, delay: index * 0.2 }}
               className="custom-list-item"
             >
-              <img
+              <Image
                 src="/images/icons/arrow.svg"
-                loading="lazy"
                 alt="arrow icon"
+                width={28}
+                height={28}
                 className="icon_28"
               />
               <div className="custom-list-item-content">

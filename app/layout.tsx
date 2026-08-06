@@ -13,17 +13,17 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Code Collider - Expert Website Consulting",
+  title: "Codecollider — Software Engineering & Digital Solutions",
   description:
-    "Elevate your business with expert website audits, strategic planning, and digital marketing solutions designed to drive growth and success.",
+    "Codecollider provides top-tier software engineering, AI integration, and digital transformation solutions.",
   icons: {
     icon: "/favicon.svg",
     apple: "/favicon.svg",
   },
   openGraph: {
-    title: "Code Collider - Expert Website Consulting",
+    title: "Codecollider — Software Engineering & Digital Solutions",
     description:
-      "Elevate your business with expert website audits, strategic planning, and digital marketing solutions designed to drive growth and success.",
+      "Codecollider provides top-tier software engineering, AI integration, and digital transformation solutions.",
     type: "website",
   },
 };

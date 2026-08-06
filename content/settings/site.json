@@ -8,7 +8,7 @@
     "image": "/images/photos/hero-team.avif"
   },
   "contact": {
-    "email": "info@codecollider.tech",
+    "email": "hello@codecollider.tech",
     "phone": "+380 (96) 116 99 58",
     "address": "Burghardtgasse 23, 1200 Vienna, Austria"
   },
@@ -105,13 +105,13 @@
     "video": {
       "badge": "Collaborative Approach",
       "title": "Harnessing Team Synergy for Outstanding Outcomes",
-      "description": "At Code Collider, teamwork is at the heart of everything we do. By combining our diverse skills and perspectives, we foster a collaborative environment where innovative solutions thrive. Our team works seamlessly together to ensure every project benefits from a holistic approach, leading to superior outcomes and client satisfaction. Discover how our united efforts drive success and make your vision a reality.",
+      "description": "At Codecollider, teamwork is at the heart of everything we do. By combining our diverse skills and perspectives, we foster a collaborative environment where innovative solutions thrive. Our team works seamlessly together to ensure every project benefits from a holistic approach, leading to superior outcomes and client satisfaction. Discover how our united efforts drive success and make your vision a reality.",
       "videoUrl": "",
       "videoPoster": "/images/photos/team-discussion.avif"
     },
     "finalCta": {
       "title": "Looking for fresh and innovative ideas?",
-      "description": "Get ahead with creative solutions from Code Collider. We turn bold ideas into actionable strategies tailored to your goals.",
+      "description": "Get ahead with creative solutions from Codecollider. We turn bold ideas into actionable strategies tailored to your goals.",
       "buttonText": "Get in touch",
       "buttonLink": "/contact"
     }

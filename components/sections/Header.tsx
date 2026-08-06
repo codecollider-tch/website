@@ -14,6 +14,7 @@ const navLinks = [
 ];
 
 export default function Header() {
+  const siteTitle = data?.settings?.hero?.title || "Codecollider";
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);

@@ -70,10 +70,11 @@ function BlogCard({ blog, index }: { blog: Post; index: number }) {
           <h3 className="heading-style-h4">{blog.title}</h3>
           <div className="w-layout-hflex cta_readmore">
             <div>Read more</div>
-            <img
+            <Image
               src="/images/icons/arrow-light.svg"
-              loading="lazy"
               alt="Arrow right"
+              width={20}
+              height={20}
               className="cta_readmore-icon"
             />
           </div>

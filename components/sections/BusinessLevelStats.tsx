@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 
+import Image from "next/image";
+
 import { motion, useInView } from "framer-motion";
 
 interface Stat {
@@ -28,10 +30,11 @@ export default function BusinessLevelStats({ stats = [] }: BusinessLevelStatsPro
             >
               <div className="fifty_fifty-grid-right">
                 <div className="fifty_fifty_img_wr">
-                  <img
+                  <Image
                     src="/images/photos/business-level.avif"
-                    loading="lazy"
                     alt="Team Working on the desk"
+                    width={600}
+                    height={400}
                     className="image_fit"
                   />
                 </div>

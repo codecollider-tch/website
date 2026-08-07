@@ -2,6 +2,8 @@
 
 import { FormEvent, useState } from "react";
 
+import Image from "next/image";
+
 import { motion } from "framer-motion";
 
 export default function ContactForm() {
@@ -78,10 +80,11 @@ export default function ContactForm() {
               transition={{ duration: 0.6 }}
               className="contact_thumbnail_wr"
             >
-              <img
+              <Image
                 src="/images/photos/contact-form.avif"
-                loading="lazy"
                 alt="Female Employee Connecting on phone"
+                width={600}
+                height={800}
                 className="thumbnail_fit"
               />
             </motion.div>

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 
+import Image from "next/image";
 import Link from "next/link";
 
 import { motion } from "framer-motion";
@@ -67,7 +68,7 @@ export default function Footer({ contact, social }: FooterProps) {
             {/* Column 1 */}
             <div className="footer_col is-one">
               <Link href="/" className="footer-brand w-inline-block">
-                <img src="/images/logo.svg" loading="lazy" alt="Code Collider" />
+                <Image src="/images/logo.svg" alt="Code Collider" width={160} height={40} />
               </Link>
               <p className="body_one">
                 Expert guidance tailored to your business needs, driving growth and innovation.
@@ -83,10 +84,11 @@ export default function Footer({ contact, social }: FooterProps) {
                       rel="noopener noreferrer"
                       className="social_share-icon w-inline-block"
                     >
-                      <img
+                      <Image
                         src={social.icon}
-                        loading="lazy"
                         alt={social.name}
+                        width={20}
+                        height={20}
                         className="social_icon"
                       />
                     </a>

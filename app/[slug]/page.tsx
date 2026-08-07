@@ -13,19 +13,24 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-  const pagesResponse = await client.queries.pageConnection();
-  const pages = pagesResponse.data.pageConnection.edges || [];
+  try {
+    const pagesResponse = await client.queries.pageConnection();
+    const pages = pagesResponse.data.pageConnection.edges || [];
 
-  return pages
-    .map((page) => {
-      const filename = page?.node?._sys?.filename;
-      // Skip the home page as it's handled by app/page.tsx
-      if (filename === "home") return null;
-      return {
-        slug: filename,
-      };
-    })
-    .filter(Boolean);
+    return pages
+      .map((page) => {
+        const filename = page?.node?._sys?.filename;
+        // Skip the home page as it's handled by app/page.tsx
+        if (filename === "home") return null;
+        return {
+          slug: filename,
+        };
+      })
+      .filter(Boolean);
+  } catch (error) {
+    console.error("Error generating static params for pages:", error);
+    return [];
+  }
 }
 
 export default async function Page({ params }: PageProps) {

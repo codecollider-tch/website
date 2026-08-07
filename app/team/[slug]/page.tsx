@@ -12,18 +12,23 @@ interface TeamMemberPageProps {
 }
 
 export async function generateStaticParams() {
-  const teamResponse = await client.queries.teamConnection();
-  const teamMembers = teamResponse.data.teamConnection.edges || [];
+  try {
+    const teamResponse = await client.queries.teamConnection();
+    const teamMembers = teamResponse.data.teamConnection.edges || [];
 
-  return teamMembers
-    .map((member) => {
-      const filename = member?.node?._sys?.filename;
-      if (!filename) return null;
-      return {
-        slug: filename,
-      };
-    })
-    .filter(Boolean);
+    return teamMembers
+      .map((member) => {
+        const filename = member?.node?._sys?.filename;
+        if (!filename) return null;
+        return {
+          slug: filename,
+        };
+      })
+      .filter(Boolean);
+  } catch (error) {
+    console.error("Error generating static params for team:", error);
+    return [];
+  }
 }
 
 export default async function TeamMemberPage({ params }: TeamMemberPageProps) {
@@ -76,20 +81,18 @@ export default async function TeamMemberPage({ params }: TeamMemberPageProps) {
           </section>
 
           {/* Biography section on white background */}
-          <section style={{ backgroundColor: '#fff', paddingTop: '5rem', paddingBottom: '5rem' }}>
+          <section style={{ backgroundColor: "#fff", paddingTop: "5rem", paddingBottom: "5rem" }}>
             <div className="padding-global">
               <div className="container-large">
                 <div className="team_profile_bio_wrapper">
                   {data.team.bio && (
                     <div className="rich_text_content">
-                      {data.team.bio.split('\n\n').map((paragraph, index) => (
+                      {data.team.bio.split("\n\n").map((paragraph, index) => (
                         <p key={index}>{paragraph}</p>
                       ))}
                     </div>
                   )}
-                  {!data.team.bio && (
-                    <p>No biography available.</p>
-                  )}
+                  {!data.team.bio && <p>No biography available.</p>}
                 </div>
               </div>
             </div>
@@ -125,4 +128,3 @@ export async function generateMetadata({ params }: TeamMemberPageProps) {
     };
   }
 }
-

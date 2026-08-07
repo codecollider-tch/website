@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 
 import { motion } from "framer-motion";
@@ -36,11 +37,11 @@ export default function FiftyFifty() {
             </div>
             <div className="fifty_fifty-grid-right">
               <div className="fifty_fifty_img_wr">
-                <img
+                <Image
                   src="/images/photos/business-man.jpg"
-                  loading="lazy"
                   alt="Happy Business man"
-                  sizes="(max-width: 767px) 100vw, (max-width: 991px) 45vw, (max-width: 1279px) 35vw, 416px"
+                  width={416}
+                  height={500}
                   className="image_fit"
                 />
               </div>

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -39,11 +40,11 @@ export default function Header() {
       <div className="nav_component w-nav" data-collapse="medium">
         <div className="nav_container">
           <Link href="/" className="nav_brand w-nav-brand w--current" aria-label="home">
-            <img
+            <Image
               src="/images/logo.svg"
-              loading="lazy"
               alt="Code Collider"
-              height="Auto"
+              width={160}
+              height={40}
               className="nav_logo"
             />
           </Link>

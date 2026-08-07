@@ -16,18 +16,23 @@ interface BlogPostProps {
 }
 
 export async function generateStaticParams() {
-  const postsResponse = await client.queries.postConnection();
-  const posts = postsResponse.data.postConnection.edges || [];
+  try {
+    const postsResponse = await client.queries.postConnection();
+    const posts = postsResponse.data.postConnection.edges || [];
 
-  return posts
-    .map((post) => {
-      const filename = post?.node?._sys?.filename;
-      if (!filename) return null;
-      return {
-        slug: filename,
-      };
-    })
-    .filter(Boolean);
+    return posts
+      .map((post) => {
+        const filename = post?.node?._sys?.filename;
+        if (!filename) return null;
+        return {
+          slug: filename,
+        };
+      })
+      .filter(Boolean);
+  } catch (error) {
+    console.error("Error generating static params for blog posts:", error);
+    return [];
+  }
 }
 
 export default async function BlogPost({ params }: BlogPostProps) {

@@ -7,8 +7,8 @@
     "node": "^24.0.0"
   },
   "scripts": {
-    "dev": "NODE_OPTIONS='--require ./scripts/tina-dom-polyfill.cjs' tinacms dev -c \"next dev\"",
-    "build": "NODE_OPTIONS='--max-old-space-size=4096 --require ./scripts/tina-dom-polyfill.cjs' tinacms build --skip-cloud-checks && next build",
+    "dev": "dotenv --no-error -e .env.local -- sh -c 'NODE_OPTIONS=\"--require ./scripts/tina-dom-polyfill.cjs\" tinacms dev -c \"next dev\"'",
+    "build": "dotenv --no-error -e .env.local -- sh -c 'NODE_OPTIONS=\"--max-old-space-size=4096 --require ./scripts/tina-dom-polyfill.cjs\" tinacms build --skip-cloud-checks && next build'",
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
@@ -40,6 +40,7 @@
   },
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
+    "dotenv-cli": "^11.0.0",
     "lint-staged": "^16.2.7",
     "prettier": "^3.6.2",
     "prettier-plugin-tailwindcss": "^0.6.9"

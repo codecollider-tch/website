@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 
+import Image from "next/image";
+
 import { motion } from "framer-motion";
 
 interface Sector {
@@ -23,10 +25,11 @@ function SectorCard({ sector }: { sector: Sector }) {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <img
+      <Image
         src={sector.image || "/images/photos/default-sector.avif"}
-        loading="lazy"
         alt={sector.title || "Sector"}
+        width={300}
+        height={400}
         className="aspect-ratio-large"
       />
       <div className="sector_thumbnail-overlay"></div>

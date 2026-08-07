@@ -73,7 +73,13 @@ export default function ContactInfo({ data }: ContactInfoProps) {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="detail_card is-small"
               >
-                <img src={card.icon} loading="lazy" alt={card.title} className="icon_24" />
+                <Image
+                  src={card.icon}
+                  alt={card.title}
+                  width={24}
+                  height={24}
+                  className="icon_24"
+                />
                 <h4>{card.title}</h4>
                 {card.hours ? (
                   <div className="w-layout-vflex hours_wr">
